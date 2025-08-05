@@ -2796,7 +2796,7 @@
         let correctas = p.correcta.slice().sort().toString();
         let usuario = seleccionadas.slice().sort().toString();
         let esCorrecto = correctas === usuario;
-        if (esCorrecto) puntaje += 5;
+        if (esCorrecto) puntaje += 2;
         html += `<p><strong>${i+1}. ${p.texto}</strong><br>
                  <span class="${esCorrecto?'respuesta-correcta':'respuesta-incorrecta'}">
                  Tu respuesta: ${formatRespuesta(seleccionadas)} | Correcta: ${formatRespuesta(p.correcta)}</span></p>`;
@@ -2830,3 +2830,4 @@
   </script>
 </body>
 </html>
+
