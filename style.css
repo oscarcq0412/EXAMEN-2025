@@ -1,0 +1,167 @@
+/* Fondo celeste */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to top, #a0d8ef, #e0f7ff); /* Cielo suave */
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* Cielo con nubes 3D */
+.sky {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    perspective: 800px;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.cloud {
+    position: absolute;
+    width: 120px;
+    height: 60px;
+    background: #ffffff;
+    border-radius: 60px;
+    opacity: 0.7;
+    animation: floatCloud 60s linear infinite;
+    box-shadow:
+        40px 10px 0px 0px #ffffff,
+        80px 0px 0px 0px #ffffff,
+        120px 15px 0px 0px #ffffff,
+        60px -15px 0px 0px #ffffff;
+}
+
+/* Nube 1 */
+.cloud1 {
+    top: 10%;
+    left: -300px;
+    transform: scale(1.2) translateZ(0px);
+    animation-delay: 0s;
+}
+
+/* Nube 2 */
+.cloud2 {
+    top: 25%;
+    left: -500px;
+    transform: scale(1) translateZ(-100px);
+    animation-delay: 10s;
+}
+
+/* Nube 3 */
+.cloud3 {
+    top: 40%;
+    left: -400px;
+    transform: scale(1.4) translateZ(-200px);
+    animation-delay: 20s;
+}
+
+/* Nube 4 */
+.cloud4 {
+    top: 60%;
+    left: -600px;
+    transform: scale(1) translateZ(-50px);
+    animation-delay: 30s;
+}
+
+@keyframes floatCloud {
+    0% {
+        left: -300px;
+    }
+    100% {
+        left: 110%;
+    }
+}
+
+/* Login */
+.login-container {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.95);
+    max-width: 550px; /* Aumentado de 450px */
+    margin: 8% auto;
+    padding: 40px; /* Aumentado */
+    border-radius: 20px; /* Más suave */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+
+.login-container h2 {
+    margin-bottom: 25px;
+    font-size: 30px; /* Aumentado */
+    color: #0077cc;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 15px; /* Aumentado */
+    margin: 12px 0; /* Más separación */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 18px; /* Aumentado */
+}
+
+.login-container button {
+    width: 100%;
+    padding: 14px; /* Aumentado */
+    margin-top: 15px;
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px; /* Aumentado */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-container button:hover {
+    background-color: #005fa3;
+}
+
+#mensaje {
+    margin-top: 20px;
+    font-size: 16px; /* Aumentado */
+    color: red;
+}
+
+/* Materias */
+.materias-container {
+    position: relative;
+    z-index: 1;
+    max-width: 650px; /* Aumentado de 500px */
+    margin: 6% auto;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px; /* Aumentado */
+    border-radius: 20px; /* Más suave */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+
+.materias-container h1 {
+    margin-bottom: 30px;
+    font-size: 32px; /* Aumentado */
+    color: #0077cc;
+}
+
+.materias-container button {
+    width: 100%;
+    padding: 16px; /* Aumentado */
+    margin: 12px 0; /* Más separación */
+    background-color: #0099ff;
+    color: white;
+    border: none;
+    border-radius: 12px; /* Más redondeado */
+    font-size: 18px; /* Aumentado */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.materias-container button:hover:not(:disabled) {
+    background-color: #007acc;
+}
+
+.materias-container button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}

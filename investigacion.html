@@ -1,0 +1,2832 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="stylesheet" href="estiloinvestigacion.css">
+  <title>INVESTIGACION CRIMINAL</title>
+  <style>
+    
+  </style>
+</head>
+<body>
+    <div class="titulo">Investigación Criminal</div>
+      <div class="quiz-container">
+    
+    
+    <form id="formQuiz"></form>
+    
+    <button onclick="finalizar()">Finalizar</button>
+  </div>
+
+  <script>
+    const todasPreguntas = [
+      // BOLO 1---------------------------
+            {
+                texto: "¿Qué conforma el Bloque de Constitucionalidad en la investigación criminal?",
+                opciones: [
+                    "A) Solo la Constitución Política del Estado",
+                    "B) La CPE, tratados de DD.HH. y leyes infraconstitucionales",
+                    "C) Solo el Código Penal y de Procedimiento Penal",
+                    "D) Reglamentos internos de la Policía",
+                    "E) Todas las anteriores"
+                ],
+                correcta: [1]
+            },
+            {
+                texto: "Según el Art. 23 CPE, una persona puede ser aprehendida sin mandamiento cuando:",
+                opciones: [
+                    "A) El fiscal lo ordena verbalmente",
+                    "B) Existe delito flagrante",
+                    "C) Lo solicita un familiar",
+                    "D) La policía lo considera necesario",
+                    "E) Todas las anteriores"
+                ],
+                correcta: [1]
+            },
+            {
+                texto: "¿Qué garantiza la Acción de Libertad según el Art. 125 CPE?",
+                opciones: [
+                    "A) Cese de persecución indebida",
+                    "B) Tutela de la vida y restitución de derechos",
+                    "C) Libertad de todos los acusados",
+                    "D) Suspender procesos judiciales",
+                    "E) Ninguna de las anteriores"
+                ],
+                correcta: [0,1]
+            },
+            {
+                texto: "¿Cuál es la primera acción en una escena del crimen?",
+                opciones: [
+                    "A) Asegurar el área",
+                    "B) Tomar fotos sin orden",
+                    "C) Tocar evidencias",
+                    "D) Interrogar testigos",
+                    "E) Todas las anteriores"
+                ],
+                correcta: [0]
+            },
+            {
+                texto: "¿Qué significa la cadena de custodia?",
+                opciones: [
+                    "A) Control y resguardo de evidencias",
+                    "B) Lista de testigos",
+                    "C) Procedimiento para acusar",
+                    "D) Informe pericial",
+                    "E) Ninguna de las anteriores"
+                ],
+                correcta: [0]
+            },
+            {
+                texto: "Según el Art. 251 CPE, la misión específica de la Policía Boliviana es:",
+                opciones: [
+                    "A) Solo investigar delitos",
+                    "B) Conservar el orden público y cumplir las leyes",
+                    "C) Realizar funciones políticas",
+                    "D) Participar en campañas partidarias",
+                    "E) Ninguna"
+                ],
+                correcta: [1]
+            },
+            {
+                texto: "La Ley Orgánica de la Policía indica que las unidades de criminalística deben:",
+                opciones: [
+                    "A) Investigar delitos e identificar autores",
+                    "B) Dictar sentencias judiciales",
+                    "C) Ser fiscales en juicios",
+                    "D) Elaborar leyes",
+                    "E) Ninguna"
+                ],
+                correcta: [0]
+            },
+            {
+                texto: "¿Qué principios debe respetar la Policía en investigación criminal?",
+                opciones: [
+                    "A) Legalidad y debido proceso",
+                    "B) Dignidad humana y garantía de derechos",
+                    "C) Uso indiscriminado de la fuerza",
+                    "D) Secreto absoluto sin control judicial",
+                    "E) Todas las anteriores"
+                ],
+                correcta: [0,1]
+            },
+            {
+                texto: "La Acción de Amparo Constitucional protege:",
+                opciones: [
+                    "A) Derechos amenazados o restringidos",
+                    "B) Solo delitos de corrupción",
+                    "C) Exclusivamente procesos civiles",
+                    "D) Libertad de prensa",
+                    "E) Ninguna"
+                ],
+                correcta: [0]
+            },
+            {
+                texto: "La Ley 260 (Ministerio Público) indica que la Policía en investigación debe:",
+                opciones: [
+                    "A) Identificar y aprehender responsables",
+                    "B) Custodiar y conservar indicios",
+                    "C) Actuar bajo dirección funcional del fiscal",
+                    "D) Auxiliar víctimas",
+                    "E) Todas las anteriores"
+                ],
+                correcta: [0,1,2,3]
+            },
+            {
+                texto: "¿Qué es dirección funcional en la investigación?",
+                opciones: [
+                    "A) La autoridad policial dirige la investigación",
+                    "B) El fiscal dirige legal y estratégicamente",
+                    "C) Los investigadores actúan sin supervisión",
+                    "D) Se permite modificar requerimientos fiscales",
+                    "E) Ninguna"
+                ],
+                correcta: [1]
+            },
+            {
+                texto: "¿Qué documento regula actuaciones investigativas de fiscales y policías?",
+                opciones: [
+                    "A) Manual de Actuaciones Investigativas (Resolución Conjunta 001/2007)",
+                    "B) Código Civil",
+                    "C) Reglamento Universitario",
+                    "D) Ley de Propiedad",
+                    "E) Ninguna"
+                ],
+                correcta: [0]
+            },
+            {
+                texto: "El Instituto de Investigaciones Forenses (IDIF) se encarga de:",
+                opciones: [
+                    "A) Realizar estudios científicos y pericias",
+                    "B) Dictar sentencia en procesos penales",
+                    "C) Dirigir la Policía Nacional",
+                    "D) Emitir leyes",
+                    "E) Ninguna"
+                ],
+                correcta: [0]
+            },
+            {
+                texto: "¿Qué debe garantizar la cadena de custodia según la Ley 260?",
+                opciones: [
+                    "A) Que las evidencias no se contaminen ni alteren",
+                    "B) Que los testigos no hablen",
+                    "C) Que la investigación sea rápida",
+                    "D) Que los medios publiquen la información",
+                    "E) Ninguna"
+                ],
+                correcta: [0]
+            },
+            {
+                texto: "El Art. 7 de la Ley Orgánica de la Policía establece que debe:",
+                opciones: [
+                    "A) Preservar derechos y garantías fundamentales",
+                    "B) Practicar diligencias de policía judicial",
+                    "C) Recuperar objetos robados",
+                    "D) Todas las anteriores",
+                    "E) Ninguna"
+                ],
+                correcta: [0,1,2]
+            },
+            {
+                texto: "¿Qué garantiza el Art. 23 CPE sobre la libertad personal?",
+                opciones: [
+                    "A) Solo el derecho de los inocentes",
+                    "B) Que la privación de libertad se haga según la ley",
+                    "C) Que nadie pueda ser detenido bajo ningún motivo",
+                    "D) Que el fiscal tenga autoridad absoluta",
+                    "E) Ninguna"
+                ],
+                correcta: [1]
+            },
+            {
+                texto: "¿Qué pasa si una autoridad no cumple con la Acción de Libertad?",
+                opciones: [
+                    "A) Es sancionada por atentado a garantías constitucionales",
+                    "B) No ocurre nada",
+                    "C) Se archiva el caso",
+                    "D) Pierde el cargo automáticamente",
+                    "E) Ninguna"
+                ],
+                correcta: [0]
+            },
+            {
+                texto: "¿Qué función tiene la Policía como auxiliar del Ministerio Público?",
+                opciones: [
+                    "A) Realizar investigaciones y remitir informes técnicos",
+                    "B) Dictar sentencia",
+                    "C) Nombrar jueces",
+                    "D) Elaborar leyes penales",
+                    "E) Ninguna"
+                ],
+                correcta: [0]
+            },
+            {
+                texto: "¿Qué artículo reconoce a la Policía como garante del orden público?",
+                opciones: [
+                    "A) Art. 7 de la Ley Orgánica",
+                    "B) Art. 23 CPE",
+                    "C) Art. 251 CPE",
+                    "D) Art. 126 CPE",
+                    "E) Ninguna"
+                ],
+                correcta: [2]
+            },
+            {
+                texto: "¿Qué valores orientan a la Policía según su Ley Orgánica?",
+                opciones: [
+                    "A) Seguridad, paz y justicia",
+                    "B) Poder político",
+                    "C) Intereses económicos",
+                    "D) Estrategias militares",
+                    "E) Ninguna"
+                ],
+                correcta: [0]
+            },
+    
+ {
+    texto: "¿De quién depende administrativa y financieramente el Instituto de Investigaciones Forenses (IDIF)?",
+    opciones: [
+      "A) Policía Boliviana",
+      "B) Fiscalía General del Estado",
+      "C) Ministerio de Justicia",
+      "D) Tribunal Constitucional",
+      "E) Universidad Policial"
+    ],
+    correcta: [1]
+  },
+  {
+    texto: "¿Qué responsabilidad tienen los peritos y servidores del IDIF e IITCUP en caso de mal desempeño?",
+    opciones: [
+      "A) Solo responsabilidad administrativa",
+      "B) Solo responsabilidad civil",
+      "C) Responsabilidad penal, civil y administrativa",
+      "D) No tienen responsabilidad",
+      "E) Solo responsabilidad penal"
+    ],
+    correcta: [2]
+  },
+  {
+    texto: "Según el Artículo 13 del Código de Procedimiento Penal, ¿qué sucede con las pruebas obtenidas por medios ilícitos?",
+    opciones: [
+      "A) Tienen valor si ayudan al proceso",
+      "B) No tienen valor jurídico",
+      "C) Son válidas solo con autorización judicial",
+      "D) Solo se usan en casos graves",
+      "E) Se consideran evidencia secundaria"
+    ],
+    correcta: [1]
+  },
+  {
+    texto: "¿Cuál es la función principal de la Policía Judicial según el Código de Procedimiento Penal?",
+    opciones: [
+      "A) Dirigir juicios penales",
+      "B) Investigar delitos y apoyar al Ministerio Público",
+      "C) Defender a los acusados",
+      "D) Solo apoyar a la Fiscalía en trámites",
+      "E) Preservar la seguridad ciudadana sin investigación"
+    ],
+    correcta: [1]
+  },
+  {
+    texto: "¿Quién dirige funcionalmente la investigación de delitos en Bolivia?",
+    opciones: [
+      "A) Policía Boliviana",
+      "B) Ministerio Público",
+      "C) Instituto de Investigaciones Forenses",
+      "D) Tribunal Constitucional",
+      "E) Fiscalía General del Estado"
+    ],
+    correcta: [1]
+  },
+  {
+    texto: "Según el Artículo 74, ¿cuál es una de las funciones de la Policía Nacional en la investigación de delitos?",
+    opciones: [
+      "A) Dirigir juicios",
+      "B) Auxiliar a las víctimas y acumular pruebas",
+      "C) Solo arrestar sospechosos",
+      "D) Emitir sentencias",
+      "E) Administrar recursos judiciales"
+    ],
+    correcta: [1]
+  },
+  {
+    texto: "¿Cuál es el plazo máximo para que el fiscal o policía disponga el arresto preventivo en la investigación inicial?",
+    opciones: [
+      "A) 4 horas",
+      "B) 8 horas",
+      "C) 12 horas",
+      "D) 24 horas",
+      "E) 48 horas"
+    ],
+    correcta: [1]
+  },
+  {
+    texto: "¿En qué casos la Policía Nacional puede aprehender a una persona según el Artículo 227?",
+    opciones: [
+      "A) Solo en flagrancia",
+      "B) En flagrancia y con orden judicial",
+      "C) Solo con orden fiscal",
+      "D) En cualquier caso sin justificación",
+      "E) Solo por orden de un juez"
+    ],
+    correcta: [1]
+  },
+  {
+    texto: "¿Qué debe hacer un particular que aprehenda a una persona en flagrancia?",
+    opciones: [
+      "A) Liberarla inmediatamente",
+      "B) Entregarla a la policía o autoridad más cercana",
+      "C) Presentarla ante el tribunal sin policía",
+      "D) Mantenerla hasta que llegue la policía",
+      "E) Tomar declaración y dejarla en libertad"
+    ],
+    correcta: [1]
+  },
+  {
+    texto: "¿Quién está obligado a denunciar delitos de acción pública?",
+    opciones: [
+      "A) Solo fiscales",
+      "B) Funcionarios públicos y profesionales de salud",
+      "C) Solo policías",
+      "D) Cualquier ciudadano sin excepción",
+      "E) Solo víctimas directas"
+    ],
+    correcta: [1]
+  },
+  {
+    texto: "¿Qué debe hacer la policía al recibir una denuncia de delito?",
+    opciones: [
+      "A) Iniciar investigación preventiva e informar al fiscal en 24 horas",
+      "B) Ignorar la denuncia si no es grave",
+      "C) Enviar al juez sin investigar",
+      "D) Solo tomar nota sin acción inmediata",
+      "E) Archivar el caso"
+    ],
+    correcta: [0]
+  },
+  {
+    texto: "¿Cuál es la función del fiscal tras recibir una denuncia o información de delito?",
+    opciones: [
+      "A) Dirigir la investigación y solicitar apoyo a policía y forenses",
+      "B) Resolver el caso directamente",
+      "C) Solo informar al juez",
+      "D) Ordenar arrestos inmediatos sin investigación",
+      "E) Archivar la denuncia"
+    ],
+    correcta: [0]
+  },
+  {
+    texto: "¿Qué es una querella según el Código de Procedimiento Penal?",
+    opciones: [
+      "A) Un memorial o escrito acusatorio",
+      "B) Una apelación judicial",
+      "C) Una orden de arresto",
+      "D) Una declaración de testigo",
+      "E) Un informe pericial"
+    ],
+    correcta: [0]
+  },
+  {
+    texto: "¿Qué deben hacer los policías al tener noticia fehaciente de un delito de acción pública?",
+    opciones: [
+      "A) Esperar instrucciones judiciales",
+      "B) Informar a fiscalía en 8 horas y practicar diligencias preliminares",
+      "C) Detener a todos los sospechosos sin pruebas",
+      "D) Investigar sin informar a nadie",
+      "E) Ignorar hasta recibir denuncia formal"
+    ],
+    correcta: [1]
+  },
+  {
+    texto: "¿Cuál es la obligación de la policía en relación con la salud e integridad de detenidos y víctimas?",
+    opciones: [
+      "A) No tienen obligación",
+      "B) Proteger y garantizar atención médica",
+      "C) Solo proteger a víctimas",
+      "D) Garantizar solo la seguridad física",
+      "E) Solo informar a familiares"
+    ],
+    correcta: [1]
+  },
+  {
+    texto: "¿Qué facultad NO tiene la policía al cumplir funciones de policía judicial?",
+    opciones: [
+      "A) Recibir denuncias y declaraciones",
+      "B) Practicar registros y aprehensiones",
+      "C) Emitir sentencias judiciales",
+      "D) Proteger a testigos y víctimas",
+      "E) Levantar planos y tomar fotografías"
+    ],
+    correcta: [2]
+  },
+  {
+    texto: "¿Cuál es un principio que debe seguir la policía al aprehender a imputados?",
+    opciones: [
+      "A) Usar la fuerza siempre que se pueda",
+      "B) No permitir defensa legal",
+      "C) Usar fuerza solo cuando sea estrictamente necesario",
+      "D) Permitir que detenidos sean presentados en medios sin consentimiento",
+      "E) No informar motivo de aprehensión"
+    ],
+    correcta: [2]
+  },
+  {
+    texto: "¿Quién ejerce la dirección funcional de la actuación policial en la investigación del delito?",
+    opciones: [
+      "A) La Fiscalía",
+      "B) El Ministerio de Gobierno",
+      "C) La Policía Nacional",
+      "D) El Tribunal Supremo",
+      "E) El Ministerio Público"
+    ],
+    correcta: [0]
+  },
+  {
+    texto: "¿En cuánto tiempo deben concluir las investigaciones preliminares efectuadas por la Policía Boliviana?",
+    opciones: [
+      "A) 10 días",
+      "B) 15 días",
+      "C) 20 días",
+      "D) 30 días",
+      "E) 60 días"
+    ],
+    correcta: [2]
+  },
+  {
+    texto: "¿Cuál es el objetivo principal de la Ley N° 348?",
+    opciones: [
+      "A) Regular la policía judicial",
+      "B) Garantizar a las mujeres una vida libre de violencia",
+      "C) Fortalecer la Fiscalía General",
+      "D) Controlar el uso de la fuerza policial",
+      "E) Aumentar penas por delitos comunes"
+    ],
+    correcta: [1]
+  },
+
+
+
+            // BOLO 2---------------------------
+
+        {
+        texto: "¿Cuál es el objetivo principal de la creación de la FELCC según la Resolución Ministerial Nº 4141?",
+        opciones: [
+            "A) Regular el tránsito vehicular urbano",
+            "B) Fortalecer la lucha contra delitos económicos",
+            "C) Mejorar la capacidad investigativa de la Policía Boliviana",
+            "D) Reestructurar el sistema penitenciario",
+            "E) Ninguna de las anteriores"
+        ],
+        correcta: [2]
+    },
+    {
+        texto: "¿Qué tipo de organismo es la FELCC dentro de la Policía Boliviana?",
+        opciones: [
+            "A) Administrativo",
+            "B) Científico-tecnológico",
+            "C) Técnico científico especializado",
+            "D) Militar",
+            "E) Organismo político"
+        ],
+        correcta: [2]
+    },
+    {
+        texto: "¿Cuál de las siguientes NO es una función de la FELCC?",
+        opciones: [
+            "A) Investigación de delitos",
+            "B) Elaboración de diligencias",
+            "C) Redacción de leyes penales",
+            "D) Identificación de presuntos responsables",
+            "E) Análisis de pruebas"
+        ],
+        correcta: [2]
+    },
+    {
+        texto: "¿Cuál es la visión institucional de la FELCC?",
+        opciones: [
+            "A) Ser un organismo reactivo frente a crímenes",
+            "B) Aplicar sanciones disciplinarias dentro de la policía",
+            "C) Desarrollar investigaciones fiables con recursos calificados",
+            "D) Reprimir movimientos sociales",
+            "E) Controlar delitos menores exclusivamente"
+        ],
+        correcta: [2]
+    },
+    {
+        texto: "Según la R.M. N° 4141, ¿qué motivó la reestructuración de la FELCC?",
+        opciones: [
+            "A) La falta de policías en las calles",
+            "B) Indicios de corrupción y abuso de autoridad",
+            "C) La demanda de mayor presupuesto por parte del gobierno",
+            "D) El colapso del sistema judicial",
+            "E) Ninguna de las anteriores"
+        ],
+        correcta: [1]
+    },
+    {
+        texto: "¿Cuál de los siguientes documentos es parte de la base legal de la FELCC?",
+        opciones: [
+            "A) Ley Orgánica de la Policía Nacional",
+            "B) Ley de Pensiones",
+            "C) Código de Comercio",
+            "D) Ley de Educación Avelino Siñani",
+            "E) Todas las anteriores"
+        ],
+        correcta: [0]
+    },
+    {
+        texto: "¿Qué función cumple la FELCC al 'elaborar políticas y estrategias a escala nacional'?",
+        opciones: [
+            "A) Coordinar con fiscales distritales únicamente",
+            "B) Desarrollar normativa educativa",
+            "C) Responder a necesidades específicas en base a informes",
+            "D) Supervisar las cárceles del país",
+            "E) Ninguna de las anteriores"
+        ],
+        correcta: [2]
+    },
+    {
+        texto: "¿Quién dirige el Nivel de Dirección y Control dentro de la FELCC?",
+        opciones: [
+            "A) El Ministro de Gobierno",
+            "B) El Fiscal General del Estado",
+            "C) El Director Nacional y Director Departamental",
+            "D) El Presidente de la República",
+            "E) La Interpol"
+        ],
+        correcta: [2]
+    },
+    {
+        texto: "¿Cuál es una función de la Dirección Departamental de la FELCC?",
+        opciones: [
+            "A) Aprobar leyes nacionales",
+            "B) Supervisar diligencias de Policía Judicial",
+            "C) Controlar aeropuertos",
+            "D) Diseñar el currículo escolar",
+            "E) Ninguna de las anteriores"
+        ],
+        correcta: [1]
+    },
+    {
+        texto: "¿Qué función cumple el nivel de apoyo científico y técnico de la FELCC?",
+        opciones: [
+            "A) Supervisar al Ministerio de Gobierno",
+            "B) Operar cárceles en coordinación con jueces",
+            "C) Coordinar actividades técnico-investigativas",
+            "D) Administrar procesos disciplinarios",
+            "E) Ninguna de las anteriores"
+        ],
+        correcta: [2]
+    },
+    {
+        texto: "¿Qué división pertenece al apoyo técnico y científico de la FELCC?",
+        opciones: [
+            "A) División Electoral",
+            "B) División de Educación Vial",
+            "C) División de Papiloscopía",
+            "D) División Agraria",
+            "E) Ninguna de las anteriores"
+        ],
+        correcta: [2]
+    },
+    {
+        texto: "¿Qué función cumple la División de Cibercrimen?",
+        opciones: [
+            "A) Supervisar redes de prensa",
+            "B) Investigar fraudes electrónicos y delitos en línea",
+            "C) Realizar encuestas nacionales",
+            "D) Proteger información clasificada del gobierno",
+            "E) Todas las anteriores"
+        ],
+        correcta: [1]
+    },
+    {
+        texto: "¿Qué implica el enfoque en derechos humanos dentro de la FELCC?",
+        opciones: [
+            "A) Revictimización controlada",
+            "B) Desobedecer a fiscales cuando sea necesario",
+            "C) Garantizar procesos legales adecuados",
+            "D) Ignorar protocolos cuando hay pruebas suficientes",
+            "E) Todas las anteriores"
+        ],
+        correcta: [2]
+    },
+    {
+        texto: "¿Qué caracteriza a la actual gestión operativa de la FELCC?",
+        opciones: [
+            "A) Modelo vertical jerárquico exclusivamente",
+            "B) Modelo horizontal y colaborativo",
+            "C) Sistema basado en decisiones unilaterales",
+            "D) Coordinación con la Asamblea Legislativa",
+            "E) Ninguna de las anteriores"
+        ],
+        correcta: [1]
+    },
+    {
+        texto: "¿Qué acciones realiza la División de Inteligencia Criminal?",
+        opciones: [
+            "A) Analiza tendencias criminales usando big data",
+            "B) Aplica fuerza contra manifestaciones",
+            "C) Sanciona faltas administrativas",
+            "D) Controla puntos fronterizos",
+            "E) Ninguna de las anteriores"
+        ],
+        correcta: [0]
+    },
+    {
+        texto: "¿Cuál es un eje clave de la actualización institucional de la FELCC?",
+        opciones: [
+            "A) Eliminación de las divisiones científicas",
+            "B) Capacitación continua del personal",
+            "C) Supresión del Ministerio Público",
+            "D) Aumento de penas sin juicio previo",
+            "E) Ninguna de las anteriores"
+        ],
+        correcta: [1]
+    },
+    {
+        texto: "¿Qué institución coordina directamente con el Comandante General de la Policía?",
+        opciones: [
+            "A) El Senado",
+            "B) El Ministerio de Defensa",
+            "C) La Fiscalía General del Estado",
+            "D) La Cámara de Diputados",
+            "E) Ninguna de las anteriores"
+        ],
+        correcta: [2]
+    },
+    {
+        texto: "¿Cuál es una función del Departamento Nacional de Servicios Administrativos?",
+        opciones: [
+            "A) Elaborar peritajes judiciales",
+            "B) Controlar el presupuesto del organismo",
+            "C) Asegurar el cumplimiento de sentencias judiciales",
+            "D) Coordinar con municipios",
+            "E) Ninguna de las anteriores"
+        ],
+        correcta: [1]
+    },
+    {
+        texto: "¿Qué tipo de delitos investiga la FELCC?",
+        opciones: [
+            "A) Solo delitos financieros",
+            "B) Solo delitos internacionales",
+            "C) Delitos comunes, organizados y transnacionales",
+            "D) Solo delitos de tránsito",
+            "E) Ninguna de las anteriores"
+        ],
+        correcta: [2]
+    },
+    {
+        texto: "¿Qué permite el sistema nacional de información criminal coordinado por la FELCC?",
+        opciones: [
+            "A) Crear redes sociales institucionales",
+            "B) Gestionar licencias médicas",
+            "C) Acceso inmediato a antecedentes y órdenes judiciales",
+            "D) Censar a la población",
+            "E) Ninguna de las anteriores"
+        ],
+        correcta: [2]
+    },
+
+
+// BOLO 3-----------------------------------------------------------------
+
+ {
+    texto: "¿Cuál es la principal característica de las pruebas empíricas o primitivas en la antigüedad?",
+    opciones: [
+      "A) Se basaban en métodos científicos y racionales",
+      "B) Eran subjetivas y confiaban en fuerzas sobrenaturales",
+      "C) Usaban exclusivamente testigos presenciales",
+      "D) Dependían de peritos especializados",
+      "E) Se aplicaban solo en delitos graves"
+    ],
+    correcta: [1]
+  },
+  {
+    texto: "¿Qué práctica medieval consistía en someter al acusado a pruebas físicas como fuego o agua para determinar su culpabilidad?",
+    opciones: [
+      "A) Juicio por jurado",
+      "B) Prueba indiciaria",
+      "C) Ordalías",
+      "D) Confesión",
+      "E) Testimonio pericial"
+    ],
+    correcta: [2]
+  },
+  {
+    texto: "En la Edad Media, la confesión era considerada:",
+    opciones: [
+      "A) Una prueba secundaria",
+      "B) La reina de las pruebas",
+      "C) Una evidencia tecnológica",
+      "D) Un indicio indeterminado",
+      "E) Una prueba empírica"
+    ],
+    correcta: [1]
+  },
+  {
+    texto: "¿Cuál fue uno de los problemas principales de las pruebas testimoniales entre los siglos XVI y XIX?",
+    opciones: [
+      "A) Requerían demasiados peritos",
+      "B) Se basaban únicamente en tecnología forense",
+      "C) Eran susceptibles a falsificación y prejuicios",
+      "D) No podían ser utilizadas en procesos penales",
+      "E) No requerían de la presencia del juez"
+    ],
+    correcta: [2]
+  },
+  {
+    texto: "¿Qué diferencia principal existe entre un indicio y una evidencia?",
+    opciones: [
+      "A) El indicio siempre es concluyente",
+      "B) La evidencia ha sido validada científicamente",
+      "C) El indicio no se utiliza en procesos penales",
+      "D) La evidencia no necesita análisis",
+      "E) No existe diferencia entre ambos"
+    ],
+    correcta: [1]
+  },
+  {
+    texto: "¿Qué representa la prueba pericial dentro de un proceso judicial?",
+    opciones: [
+      "A) Un método empírico de observación",
+      "B) Un conocimiento técnico y especializado",
+      "C) Un testimonio de la víctima",
+      "D) Una declaración espontánea",
+      "E) Una confesión voluntaria"
+    ],
+    correcta: [1]
+  },
+  {
+    texto: "Con la llegada de la tecnología y la digitalización, ¿qué tipo de pruebas ganaron importancia en el Siglo XXI?",
+    opciones: [
+      "A) Ordalías y confesiones",
+      "B) Testimoniales presenciales",
+      "C) Pruebas digitales y tecnológicas",
+      "D) Pruebas primitivas",
+      "E) Pruebas empíricas"
+    ],
+    correcta: [2]
+  },
+  {
+    texto: "Según el Artículo 193 del Código de Procedimiento Penal, toda persona citada como testigo tiene la obligación de:",
+    opciones: [
+      "A) Declarar solo si quiere",
+      "B) Comparecer y declarar la verdad de cuanto conozca",
+      "C) Negarse a declarar siempre",
+      "D) Declarar únicamente por escrito",
+      "E) Abstenerse de testificar sin justificación"
+    ],
+    correcta: [1]
+  },
+  {
+    texto: "¿Qué personas pueden abstenerse de declarar contra el imputado según el Artículo 196?",
+    opciones: [
+      "A) Solo testigos expertos",
+      "B) Parientes consanguíneos hasta el cuarto grado y afines hasta el segundo",
+      "C) Cualquier ciudadano",
+      "D) Ninguna persona puede abstenerse",
+      "E) Solo funcionarios públicos"
+    ],
+    correcta: [1]
+  },
+  {
+    texto: "En la clasificación de indicios, ¿qué caracteriza a los determinantes?",
+    opciones: [
+      "A) Necesitan análisis químico complejo para identificarse",
+      "B) Se identifican con observación directa y guardan relación con el hecho",
+      "C) No tienen ninguna relación con el hecho investigado",
+      "D) Son siempre sustancias químicas",
+      "E) Solo se usan en pruebas digitales"
+    ],
+    correcta: [1]
+  },
+
+
+// BOLO 4-----------------------------------------------------------------
+ {
+        "texto": "¿Cuál fue la característica principal de los procedimientos antiguos para determinar la culpabilidad o inocencia de una persona?",
+        "opciones": [
+            "A) Uso de pruebas materiales y análisis científicos rigurosos",
+            "B) Basarse en creencias religiosas o supersticiones sin rigor científico",
+            "C) Exclusión total del testimonio de testigos",
+            "D) Evaluación racional y objetiva de evidencias",
+            "E) Todas las anteriores"
+        ],
+        "correcta": [1]
+    },
+    {
+        "texto": "Según Blackstone, ¿qué significa la evidencia en el proceso judicial?",
+        "opciones": [
+            "A) Sólo documentos oficiales que demuestran la verdad",
+            "B) Elemento que confirma o aclara un hecho en litigio, en favor o contra de una parte",
+            "C) Testimonio exclusivo de testigos presenciales",
+            "D) Cualquier opinión de expertos o peritos",
+            "E) Ninguna de las anteriores"
+        ],
+        "correcta": [1]
+    },
+    {
+        "texto": "En la investigación criminal boliviana, ¿qué términos se usan como sinónimos funcionales?",
+        "opciones": [
+            "A) Evidencia, indicio y prueba",
+            "B) Testimonio, confesión y prueba documental",
+            "C) Evidencia, sospecha y denuncia",
+            "D) Indicio, sospecha y testimonio",
+            "E) Todas las anteriores"
+        ],
+        "correcta": [0]
+    },
+    {
+        "texto": "¿Cuál es la diferencia fundamental entre indicio y evidencia en investigación criminal?",
+        "opciones": [
+            "A) El indicio es un elemento ya analizado técnicamente, mientras la evidencia es sólo sospecha",
+            "B) El indicio es preliminar y el elemento sin análisis, la evidencia ha sido validada técnica y científicamente",
+            "C) La evidencia es sólo el testimonio, el indicio es el objeto físico",
+            "D) No hay diferencia entre indicio y evidencia",
+            "E) Ninguna de las anteriores"
+        ],
+        "correcta": [1]
+    },
+    {
+        "texto": "¿Cuál de las siguientes NO es una clasificación válida de la evidencia según la doctrina criminalística?",
+        "opciones": [
+            "A) Evidencia directa o testifical",
+            "B) Evidencia circunstancial",
+            "C) Evidencia imaginaria",
+            "D) Evidencia real, física o material",
+            "E) Todas las anteriores son válidas"
+        ],
+        "correcta": [2]
+    },
+    {
+        "texto": "¿Cuál es la función de la cadena de custodia en el manejo de la evidencia física?",
+        "opciones": [
+            "A) Garantizar la autenticidad y valor probatorio de la evidencia",
+            "B) Permitir que la evidencia pueda ser manipulada libremente",
+            "C) Facilitar la destrucción de objetos contaminados",
+            "D) Cambiar la naturaleza de la evidencia para ajustarla al caso",
+            "E) Ninguna de las anteriores"
+        ],
+        "correcta": [0]
+    },
+    {
+        "texto": "¿Cuál es el riesgo principal del mal manejo de la evidencia en la investigación criminal?",
+        "opciones": [
+            "A) Que se acelere la investigación",
+            "B) Que la evidencia pierda su valor probatorio o sea excluida en juicio",
+            "C) Que aumente la cantidad de evidencia",
+            "D) Que se dé mayor credibilidad al testigo",
+            "E) Ninguna de las anteriores"
+        ],
+        "correcta": [1]
+    },
+    {
+        "texto": "¿Qué procedimiento no forma parte de los pasos para conservar la evidencia según el Manual de Actuaciones Investigativas?",
+        "opciones": [
+            "A) Reconocer, proteger, fijar y describir la evidencia",
+            "B) Interpretar, recoger, marcar, envasar y sellar la evidencia",
+            "C) Rotular, lacrar y enviar la evidencia al laboratorio técnico",
+            "D) Alterar o limpiar la evidencia para mejorar su apariencia",
+            "E) Todas las anteriores son pasos válidos"
+        ],
+        "correcta": [3]
+    },
+    {
+        "texto": "¿Por qué es importante el entrenamiento y actualización de los investigadores en manejo de evidencia?",
+        "opciones": [
+            "A) Para evitar errores que puedan invalidar la evidencia",
+            "B) Porque las técnicas no cambian y no hay necesidad de actualización",
+            "C) Para que los investigadores puedan manipular la evidencia a conveniencia",
+            "D) Para eliminar la cadena de custodia",
+            "E) Ninguna de las anteriores"
+        ],
+        "correcta": [0]
+    },
+    {
+        "texto": "¿Cuál de las siguientes es una forma incorrecta de transportar evidencias según el tipo de material?",
+        "opciones": [
+            "A) Transportar objetos de vidrio con cuidado para preservar huellas digitales",
+            "B) Transportar documentos en bolsas plásticas limpias",
+            "C) Transportar polvo y metales de la misma manera",
+            "D) Transportar líquidos en envases herméticos apropiados",
+            "E) Todas las anteriores son formas correctas"
+        ],
+        "correcta": [2]
+    },
+    {
+        "texto": "¿Qué se entiende por sustanciación de la evidencia en un proceso judicial?",
+        "opciones": [
+            "A) Que la evidencia sea pertinente y tenga influencia legítima en la decisión del caso",
+            "B) Que la evidencia sea manipulada para favorecer una parte",
+            "C) Que toda evidencia presentada sea automáticamente válida",
+            "D) Que la evidencia sea exclusivamente documental",
+            "E) Ninguna de las anteriores"
+        ],
+        "correcta": [0]
+    },
+    {
+        "texto": "¿Cuál de las siguientes es una excepción válida a la regla de inadmisibilidad de rumores como evidencia?",
+        "opciones": [
+            "A) Testimonio basado en chismes sin fundamento",
+            "B) Declaración del moribundo, verbal o escrita",
+            "C) Declaración anónima sin firma",
+            "D) Opinión de un testigo sin conocimiento directo",
+            "E) Todas las anteriores"
+        ],
+        "correcta": [1]
+    },
+    {
+        "texto": "En la clasificación de la prueba, ¿qué categoría corresponde a documentos públicos o privados relacionados con el hecho investigado?",
+        "opciones": [
+            "A) Prueba directa",
+            "B) Prueba documental",
+            "C) Prueba testifical",
+            "D) Prueba pericial",
+            "E) Prueba demostrativa"
+        ],
+        "correcta": [1]
+    },
+    {
+        "texto": "¿Cuál es la diferencia entre prueba de cargo y prueba de descargo?",
+        "opciones": [
+            "A) Prueba de cargo es para demostrar responsabilidad penal, prueba de descargo para desvirtuar hechos",
+            "B) Prueba de cargo es siempre testimonial, prueba de descargo es siempre documental",
+            "C) Prueba de descargo se presenta solo en la fase preliminar",
+            "D) No existe diferencia, son sinónimos",
+            "E) Ninguna de las anteriores"
+        ],
+        "correcta": [0]
+    },
+    {
+        "texto": "¿Qué debe contener un registro inmediato en la libreta de notas del investigador al encontrar evidencia?",
+        "opciones": [
+            "A) La naturaleza de la evidencia, lugar, fecha, hora y personas presentes",
+            "B) Solo la descripción física del objeto",
+            "C) Datos irrelevantes que no aportan al caso",
+            "D) Solo el nombre del investigador",
+            "E) Ninguna de las anteriores"
+        ],
+        "correcta": [0]
+    },
+    {
+        "texto": "¿Por qué la declaración del imputado sin la presencia del fiscal y abogado defensor es considerada nula?",
+        "opciones": [
+            "A) Porque no se respeta el derecho a la defensa y al debido proceso",
+            "B) Porque el imputado no debe declarar nunca",
+            "C) Porque el fiscal y abogado no tienen competencia en investigaciones",
+            "D) Porque la policía puede validar cualquier declaración",
+            "E) Ninguna de las anteriores"
+        ],
+        "correcta": [0]
+    },
+    {
+        "texto": "¿Qué característica es fundamental para la credibilidad del testigo en un proceso penal?",
+        "opciones": [
+            "A) Su capacidad para dar declaraciones coherentes y verificables",
+            "B) Su afinidad personal con la víctima",
+            "C) Su hostilidad hacia el acusado",
+            "D) Su historial criminal sin relación al caso",
+            "E) Todas las anteriores"
+        ],
+        "correcta": [0]
+    },
+    {
+        "texto": "¿Cuál de las siguientes NO es una causa válida para impugnar la competencia de un testigo?",
+        "opciones": [
+            "A) Defectos visuales o auditivos que afectan su percepción",
+            "B) Falta de preparación profesional para emitir opinión experta",
+            "C) Ser amigo íntimo del acusado",
+            "D) Capacidad para recordar hechos con claridad",
+            "E) Prejuicios o hostilidad que afecten su imparcialidad"
+        ],
+        "correcta": [3]
+    },
+    {
+        "texto": "¿Cuál es el valor probatorio principal de la inspección ocular realizada por la policía técnica judicial?",
+        "opciones": [
+            "A) Proteger, fijar y conservar elementos del lugar del hecho para análisis posterior",
+            "B) Obtener confesiones inmediatas de los sospechosos",
+            "C) Destruir evidencias contaminadas en el lugar",
+            "D) Cambiar el orden de los objetos para mejorar la escena",
+            "E) Ninguna de las anteriores"
+        ],
+        "correcta": [0]
+    },
+    {
+        "texto": "¿Qué tipo de evidencia se considera 'testigos mudos' que no requieren interpretación subjetiva?",
+        "opciones": [
+            "A) Evidencia testifical",
+            "B) Evidencia circunstancial",
+            "C) Evidencia real, física o material",
+            "D) Evidencia documental",
+            "E) Evidencia indiciaria"
+        ],
+        "correcta": [2]
+    },
+
+// BOLO 5-----------------------------------------------------------------
+{
+    "texto": "Según Rafael González (2006), ¿cuál es el enfoque metodológico principal que distingue a la criminalística como disciplina científica?",
+    "opciones": [
+      "A) La aplicación exclusiva de conocimientos jurídicos en la investigación penal",
+      "B) La aplicación de conocimientos, métodos y técnicas de las ciencias naturales en el examen de material sensible significativo",
+      "C) El uso predominante de técnicas psicológicas para identificar delincuentes",
+      "D) La implementación de procedimientos administrativos para la gestión de evidencias",
+      "E) La utilización de métodos sociológicos para comprender el comportamiento criminal"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Cuál es la principal diferencia conceptual entre la definición de investigación criminal según Lago Montejo y la de Enriquez Chipana?",
+    "opciones": [
+      "A) Lago enfatiza el aspecto interdisciplinario mientras Chipana se centra en el método científico",
+      "B) Lago se enfoca en la verdad del fenómeno delictivo mientras Chipana en la responsabilidad penal",
+      "C) Ambos autores presentan definiciones idénticas sin diferencias conceptuales",
+      "D) Lago prioriza las acciones sistemáticas mientras Chipana la recolección de evidencias",
+      "E) Lago se centra en el conocimiento mientras Chipana en el descubrimiento del hecho"
+    ],
+    "correcta": [0]
+  },
+  {
+    "texto": "En el contexto de las hipótesis sobre causas de muerte mencionadas en el texto, ¿cuál representa el mayor desafío investigativo para determinar la verdadera naturaleza del hecho?",
+    "opciones": [
+      "A) Determinar si pudo haber sido por designio del occiso",
+      "B) Establecer si fue asesinado de modo que pareciera un suicidio",
+      "C) Verificar si pudo la enfermedad haber causado la muerte",
+      "D) Confirmar si pudo haber sido el móvil por accidente",
+      "E) Identificar si hay más de una posible causa de la muerte"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "Según el Artículo 174 CPP, ¿en qué circunstancia excepcional se puede prescindir de la presencia de un testigo hábil durante el registro del lugar del hecho?",
+    "opciones": [
+      "A) Cuando el fiscal no puede concurrir al lugar del hecho",
+      "B) Cuando no sea posible contar con un testigo, debiendo asentarse en el acta los motivos",
+      "C) Cuando la policía determine que es innecesario por la naturaleza del delito",
+      "D) Cuando las condiciones meteorológicas impidan la presencia de testigos",
+      "E) Cuando el lugar del hecho esté en una zona de difícil acceso"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Cuál es la secuencia lógica correcta en la fase de 'Protección del lugar del hecho' cuando se encuentra evidencia en el camino hacia la escena del crimen?",
+    "opciones": [
+      "A) Recoger inmediatamente - fotografiar - continuar hacia el lugar",
+      "B) Ignorar temporalmente - llegar al lugar - regresar por la evidencia",
+      "C) Reservar - proteger cubriendo - fijar fotográficamente cuando sea oportuno",
+      "D) Marcar con tiza - llamar a peritos - esperar instrucciones",
+      "E) Documentar la ubicación - continuar sin alterar - reportar posteriormente"
+    ],
+    "correcta": [2]
+  },
+  {
+    "texto": "En la metodología de la ITO, ¿cuál es la razón fundamental por la que el investigador debe ingresar por una ruta que presumiblemente no fue recorrida por el autor o la víctima?",
+    "opciones": [
+      "A) Para evitar contaminar las huellas dactilares existentes en el lugar",
+      "B) Para mantener la integridad de todos los indicios y evidencias del recorrido original",
+      "C) Para cumplir con los protocolos de seguridad establecidos",
+      "D) Para facilitar el trabajo del fotógrafo forense",
+      "E) Para permitir una mejor observación panorámica del lugar"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Qué implicación técnica tiene el principio de 'EL MÍNIMO ÚTIL DE PERSONAS Y NO HAY PREMURAS' en la investigación criminalística?",
+    "opciones": [
+      "A) Reduce los costos operativos de la investigación",
+      "B) Minimiza la contaminación de evidencias y permite un trabajo meticuloso",
+      "C) Facilita la coordinación entre diferentes especialistas",
+      "D) Acelera los tiempos de procesamiento de la escena",
+      "E) Simplifica la documentación del procedimiento"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Cuál es la diferencia fundamental entre los ángulos 'Nadir' y 'Cenital' en la fotografía forense, y cuándo sería más apropiado usar cada uno?",
+    "opciones": [
+      "A) Nadir es desde abajo (90°) para huellas en suelo, Cenital desde arriba (90°) para vista general de escena",
+      "B) Nadir es horizontal para objetos, Cenital es diagonal para personas",
+      "C) Ambos son idénticos, solo cambia la terminología técnica utilizada",
+      "D) Nadir es para espacios cerrados, Cenital para espacios abiertos",
+      "E) Nadir captura detalles pequeños, Cenital captura elementos grandes"
+    ],
+    "correcta": [0]
+  },
+  {
+    "texto": "En la etapa de 'Observación del lugar del hecho', ¿por qué específicamente no se realizan anotaciones según la metodología descrita?",
+    "opciones": [
+      "A) Para evitar errores en la documentación oficial",
+      "B) Porque es una fase de reconocimiento y planificación previa a la fijación formal",
+      "C) Para mantener la confidencialidad del procedimiento",
+      "D) Porque las anotaciones corresponden exclusivamente al fiscal",
+      "E) Para no interferir con el trabajo de los peritos especialistas"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Cuál es la relación funcional entre la 'nitidez' y la 'exactitud' como requisitos esenciales de la fotografía forense?",
+    "opciones": [
+      "A) La nitidez garantiza la calidad técnica mientras la exactitud asegura la fidelidad probatoria",
+      "B) Ambos conceptos son sinónimos en el contexto forense",
+      "C) La nitidez es opcional pero la exactitud es obligatoria",
+      "D) La nitidez se refiere al equipo usado, la exactitud al procedimiento seguido",
+      "E) La nitidez es para el tribunal, la exactitud para los investigadores"
+    ],
+    "correcta": [0]
+  },
+  {
+    "texto": "¿Qué factor determina la decisión de implementar 'cordones o cintas de protección' en el lugar del hecho según la metodología establecida?",
+    "opciones": [
+      "A) La gravedad del delito cometido",
+      "B) La disponibilidad de personal policial",
+      "C) Las circunstancias que aconsejen proteger el lugar más expuesto a alterarse",
+      "D) Las condiciones meteorológicas del momento",
+      "E) La presencia o ausencia del fiscal en el lugar"
+    ],
+    "correcta": [2]
+  },
+  {
+    "texto": "En el contexto de las 'ramificaciones' del lugar del hecho, ¿qué complejidad investigativa representa el ejemplo dado de Juan que mata a Pedro y traslada el cadáver?",
+    "opciones": [
+      "A) La necesidad de investigar múltiples escenas interconectadas cronológicamente",
+      "B) La dificultad para establecer la jurisdicción competente",
+      "C) La complejidad para determinar la causa de muerte",
+      "D) El problema de identificar a los testigos presenciales",
+      "E) La dificultad para preservar evidencias en múltiples ubicaciones"
+    ],
+    "correcta": [0]
+  },
+  {
+    "texto": "¿Cuál es la implicación procesal de que las actuaciones de registro puedan realizarse 'sin presencia del fiscal únicamente en casos de urgencia'?",
+    "opciones": [
+      "A) Que la validez probatoria se ve comprometida automáticamente",
+      "B) Que se mantiene la legalidad pero se requiere justificación posterior",
+      "C) Que solo la policía puede determinar qué constituye urgencia",
+      "D) Que estas actuaciones no pueden ser incorporadas al juicio",
+      "E) Que se debe repetir el procedimiento cuando llegue el fiscal"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Qué metodología específica debe seguir el investigador especial para la detección de 'posibles olores en el ambiente' durante la observación?",
+    "opciones": [
+      "A) Utilizar equipos especializados de detección química",
+      "B) Realizar muestreos sistemáticos del aire ambiente",
+      "C) El texto no especifica una metodología particular para esta tarea",
+      "D) Coordinar con peritos químicos especializados",
+      "E) Documentar mediante fotografías especializadas"
+    ],
+    "correcta": [2]
+  },
+  {
+    "texto": "¿Cuál es la razón técnica por la que se requiere 'detenerse a unos 50 m. del Lugar del Hecho' antes de proceder al acercamiento?",
+    "opciones": [
+      "A) Para evaluar las condiciones de seguridad del perímetro",
+      "B) Para realizar el 'caminar policial' inspeccionando y buscando rastros e indicios en el trayecto",
+      "C) Para coordinar con las unidades de apoyo necesarias",
+      "D) Para verificar que no haya personas no autorizadas en el área",
+      "E) Para preparar el equipo técnico antes del ingreso"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "En la metodología de planos fotográficos, ¿cuál es la progresión lógica que debe seguirse y qué elementos técnicos específicos requiere cada nivel?",
+    "opciones": [
+      "A) General-Panorámica-Detalle-Mínimo detalle, todos requieren testigo métrico",
+      "B) Panorámica-General-Detalle-Mínimo detalle, solo detalle requiere testigo métrico",
+      "C) Panorámica-General(señaléticas)-Detalle(testigo métrico)-Mínimo detalle",
+      "D) El orden es flexible según el criterio del fotógrafo forense",
+      "E) Todos los planos requieren las mismas especificaciones técnicas"
+    ],
+    "correcta": [2]
+  },
+  {
+    "texto": "¿Qué diferencia conceptual existe entre 'rastros' y 'otros efectos materiales' mencionados en el Artículo 174 CPP?",
+    "opciones": [
+      "A) Los rastros son visibles, los efectos materiales son microscópicos",
+      "B) Los rastros son temporales, los efectos materiales son permanentes",
+      "C) El texto no establece una diferenciación clara entre ambos conceptos",
+      "D) Los rastros son dejados por personas, los efectos por objetos",
+      "E) Los rastros requieren análisis especial, los efectos son evidentes"
+    ],
+    "correcta": [2]
+  },
+  {
+    "texto": "¿Cuál es la complejidad procedimental que implica el 'rauteo' del cuerpo cuando se comprueba que hay vida?",
+    "opciones": [
+      "A) Debe realizarse antes de cualquier maniobra de auxilio médico",
+      "B) Se marca el contorno para preservar la posición original antes del traslado médico urgente",
+      "C) Solo se realiza si el médico forense está presente",
+      "D) Es opcional según las circunstancias de cada caso",
+      "E) Se realiza únicamente cuando no hay posibilidad de supervivencia"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Qué implicación tiene la afirmación 'todos los asesinatos son homicidios, pero no todos los homicidios son asesinatos' para la investigación criminalística?",
+    "opciones": [
+      "A) Determina el tipo de peritos que deben intervenir en cada caso",
+      "B) Establece diferentes protocolos de investigación según la clasificación",
+      "C) Requiere diferentes niveles de análisis forense según la tipificación legal",
+      "D) Influye en la formulación de hipótesis sobre las causas de muerte y métodos investigativos",
+      "E) No tiene implicación práctica en el procedimiento criminalístico"
+    ],
+    "correcta": [3]
+  },
+  {
+    "texto": "¿Cuál es la función específica del 'testigo métrico' en la fotografía de detalle y por qué no se menciona su uso en otros planos fotográficos?",
+    "opciones": [
+      "A) Proporciona escala de referencia precisa para elementos específicos que requieren medición exacta",
+      "B) Es un requisito legal obligatorio para toda fotografía forense",
+      "C) Facilita la identificación de objetos pequeños en la escena",
+      "D) Permite la calibración automática de la cámara fotográfica",
+      "E) Es una medida de seguridad para validar la autenticidad de las fotografías"
+    ],
+    "correcta": [0]
+  },
+
+  {
+    "texto": "¿Cuál es la diferencia funcional entre el 'Plano de Situación' y el 'Plano General' en la planimetría forense?",
+    "opciones": [
+      "A) El plano de situación es bidimensional mientras el general es tridimensional",
+      "B) El plano general ofrece contexto global urbano, el de situación muestra relación con elementos cercanos inmediatos",
+      "C) El plano de situación requiere escalas métricas, el general no las necesita",
+      "D) Ambos planos tienen la misma función pero diferente nomenclatura técnica",
+      "E) El plano general se usa en interiores, el de situación en exteriores"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Qué ventaja específica ofrece el 'Plano Isométrico' sobre el 'Plano de Abatimiento' en la representación de escenas complejas?",
+    "opciones": [
+      "A) El isométrico permite mayor detalle de niveles verticales",
+      "B) El isométrico mantiene proporciones sin distorsión perspectiva mientras muestra relaciones espaciales tridimensionales",
+      "C) El isométrico es más rápido de elaborar que el de abatimiento",
+      "D) El isométrico requiere menos habilidades técnicas del planimetrista",
+      "E) El isométrico es obligatorio por ley, el de abatimiento es opcional"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "En la secuencia metodológica de recolección de evidencias, ¿por qué se establece el orden 'primero cuerpos grandes, luego materiales menos visibles, finalmente objetos que requieren tratamiento especial'?",
+    "opciones": [
+      "A) Para optimizar el tiempo de trabajo del equipo investigativo",
+      "B) Para evitar contaminación cruzada y preservar evidencias frágiles hasta el final",
+      "C) Para cumplir con protocolos legales establecidos en el CPP",
+      "D) Para facilitar el trabajo fotográfico de fijación",
+      "E) Para permitir mejor acceso a todas las áreas de la escena"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Cuál es la razón técnica por la que NO se debe marcar proyectiles con una 'X' en la parte cilíndrica?",
+    "opciones": [
+      "A) Porque puede alterar el peso del proyectil para análisis balísticos",
+      "B) Porque dañaría las estrías dejadas por el ánima del cañón, cruciales para identificación del arma",
+      "C) Porque es un método de marcado reservado solo para vainas",
+      "D) Porque la 'X' es una marca prohibida por protocolos internacionales",
+      "E) Porque puede causar fragmentación del proyectil durante el transporte"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Qué diferencia fundamental existe entre documentos 'DUBITADOS' e 'INDUBITADOS' en el contexto de la investigación criminalística?",
+    "opciones": [
+      "A) Los dubitados son originales, los indubitados son copias",
+      "B) Los dubitados son de autenticidad cuestionable, los indubitados son de origen conocido y confiable",
+      "C) Los dubitados están dañados, los indubitados están en buen estado",
+      "D) Los dubitados requieren pericia, los indubitados no la necesitan",
+      "E) Los dubitados son públicos, los indubitados son privados"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Por qué específicamente se debe evitar el uso de pinzas metálicas para la recolección de pelos según el protocolo establecido?",
+    "opciones": [
+      "A) Porque pueden contaminar la muestra con residuos metálicos",
+      "B) Porque pueden producir daños o fracturas en la estructura capilar necesaria para análisis",
+      "C) Porque no permiten un manejo estéril de la evidencia",
+      "D) Porque son más lentas que otros métodos de recolección",
+      "E) Porque pueden generar electricidad estática que daña la muestra"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Cuál es la importancia forense específica del 'unto sebáceo' y en qué tipo de investigaciones es determinante?",
+    "opciones": [
+      "A) Permite identificar la edad gestacional en casos de aborto natural",
+      "B) Es un recubrimiento graso fetal que sirve para determinar casos de infanticidios y/o aborto",
+      "C) Facilita la identificación genética del padre biológico",
+      "D) Permite establecer la causa de muerte en neonatos",
+      "E) Es útil para determinar el tiempo transcurrido desde el nacimiento"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Qué procedimiento específico debe seguirse cuando se encuentra semen en 'orificios naturales' durante la investigación?",
+    "opciones": [
+      "A) El investigador especial debe recolectarlo inmediatamente con hisopos estériles",
+      "B) Debe ser fotografiado in situ antes de cualquier manipulación",
+      "C) El procedimiento debe ser realizado exclusivamente por el médico forense en su consultorio",
+      "D) Se debe esperar que se seque naturalmente antes de la recolección",
+      "E) Requiere la presencia obligatoria del fiscal durante la recolección"
+    ],
+    "correcta": [2]
+  },
+  {
+    "texto": "¿Por qué la 'vaina' permite 'verificar la distancia del disparo con relación a la víctima' según se menciona en el texto?",
+    "opciones": [
+      "A) Por el análisis de residuos de pólvora adheridos a sus paredes",
+      "B) Por su ubicación espacial respecto al punto de impacto del proyectil",
+      "C) Por las marcas de percusión que indican la potencia del disparo",
+      "D) El texto no explica específicamente esta relación causal",
+      "E) Por el calibre inscrito en su base que determina el alcance del arma"
+    ],
+    "correcta": [3]
+  },
+  {
+    "texto": "¿Cuál es la secuencia temporal correcta de la lividez cadavérica según el protocolo tanatológico descrito?",
+    "opciones": [
+      "A) Aparece inmediatamente - se intensifica a las 2 horas - se fija a las 12 horas",
+      "B) Aparece a los 30 minutos - se intensifica después de 4 horas - la sangre deja de fluir a las 12 horas",
+      "C) Aparece después de 2 horas - se fija después de 4 horas - permanece hasta la putrefacción",
+      "D) Aparece a los 30 minutos - se fija después de 2 horas - cambia si se mueve el cuerpo antes de 12 horas",
+      "E) Aparece después de 4 horas - se intensifica a las 12 horas - desaparece a las 24 horas"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Qué diferencia fundamental existe entre 'rigor mortis' y 'espasmo cadavérico' según la descripción tanatológica?",
+    "opciones": [
+      "A) El rigor mortis es reversible, el espasmo cadavérico es permanente",
+      "B) El rigor mortis es generalizado por cambios químicos, el espasmo cadavérico es localizado por lesiones al sistema nervioso central",
+      "C) El rigor mortis aparece inmediatamente, el espasmo cadavérico después de horas",
+      "D) El rigor mortis afecta músculos voluntarios, el espasmo cadavérico músculos involuntarios",
+      "E) No existe diferencia, son términos sinónimos para el mismo fenómeno"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Por qué se establece que 'nunca se debe introducir de manera directa la mano en un bolsillo' durante el registro de ropas del cadáver?",
+    "opciones": [
+      "A) Para evitar contaminación cruzada entre diferentes evidencias",
+      "B) Porque se pueden destruir indicios o el investigador puede herirse con elementos peligrosos",
+      "C) Para mantener la cadena de custodia de las evidencias",
+      "D) Porque requiere la presencia del médico forense",
+      "E) Para evitar alteración de la posición original del cadáver"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Cuál es la implicación del principio forense 'Se presume que la muerte de una persona es un homicidio mientras no se pruebe lo contrario'?",
+    "opciones": [
+      "A) Establece la carga probatoria inicial en favor de la investigación criminal",
+      "B) Determina que todos los casos requieren autopsia obligatoria",
+      "C) Implica que se debe arrestar sospechosos inmediatamente",
+      "D) Significa que no se pueden considerar otras causas de muerte",
+      "E) Establece jurisdicción automática para el fuero penal"
+    ],
+    "correcta": [0]
+  },
+  {
+    "texto": "¿Qué ventaja metodológica específica ofrece el método de búsqueda 'Espiral' sobre 'Simple franja' en lugares del hecho abiertos?",
+    "opciones": [
+      "A) Permite mayor velocidad de procesamiento de la escena",
+      "B) Facilita el trabajo en equipo de múltiples investigadores",
+      "C) Parte del foco real del hecho y mantiene continuidad circular hasta las paredes laterales",
+      "D) Requiere menos personal especializado para su implementación",
+      "E) Es más efectivo para espacios rectangulares"
+    ],
+    "correcta": [2]
+  },
+  {
+    "texto": "¿Por qué el análisis de la coloración de la sangre (rojo brillante vs rojo oscuro) es relevante en la investigación criminalística?",
+    "opciones": [
+      "A) Permite determinar el tiempo transcurrido desde la lesión",
+      "B) Indica si la sangre es arterial (rojo brillante) o venosa (rojo oscuro), lo que ayuda a caracterizar el tipo de lesión",
+      "C) Facilita la identificación del grupo sanguíneo de la víctima",
+      "D) Permite establecer la causa de muerte con precisión",
+      "E) Indica si la víctima estaba viva o muerta al momento de sangrar"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Cuál es la función específica del 'papel de contacto' en la recolección de huellas plantares en soportes duros?",
+    "opciones": [
+      "A) Proteger la huella de contaminación ambiental durante el transporte",
+      "B) Transferir la huella revelada para su posterior análisis, colocándose a dos centímetros del borde",
+      "C) Facilitar la identificación del tipo de calzado utilizado",
+      "D) Permitir la medición exacta de las dimensiones de la huella",
+      "E) Revelar detalles microscópicos no visibles a simple vista"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Por qué específicamente se debe 'evitar dobleces en la zona' cuando se recolecta semen sobre superficies transportables?",
+    "opciones": [
+      "A) Para mantener la integridad de la cadena de custodia",
+      "B) Para facilitar el análisis químico posterior",
+      "C) Debido a la fragilidad del espermatozoide que puede dañarse con la fricción",
+      "D) Para evitar contaminación con otras evidencias",
+      "E) Para preservar la forma original de la mancha"
+    ],
+    "correcta": [2]
+  },
+  {
+    "texto": "¿Qué implicación forense tiene el hecho de que las livideces cadavéricas 'no cambian por más que se cambie de posición el cadáver' después de cierto tiempo?",
+    "opciones": [
+      "A) Permite establecer la hora exacta de la muerte",
+      "B) Indica que el cuerpo no fue movido después de la muerte",
+      "C) Facilita la identificación de la causa de muerte",
+      "D) Permite determinar si el cadáver fue reposicionado después de que se fijaran las livideces",
+      "E) Confirma que la muerte fue natural y no violenta"
+    ],
+    "correcta": [3]
+  },
+  {
+    "texto": "¿Cuál es la razón técnica por la que se debe marcar las evidencias en 'objetos de valor en un lugar poco visible'?",
+    "opciones": [
+      "A) Para evitar depreciación del valor comercial del objeto",
+      "B) Para mantener la discreción durante el proceso judicial",
+      "C) Para preservar la integridad estética sin comprometer la identificación permanente",
+      "D) Para cumplir con regulaciones de protección patrimonial",
+      "E) Para facilitar la devolución posterior a los propietarios"
+    ],
+    "correcta": [2]
+  },
+  {
+    "texto": "¿Qué complejidad metodológica representa la 'Discusión de la I.T.O.' como etapa final del proceso?",
+    "opciones": [
+      "A) Requiere la redacción de informes técnicos especializados",
+      "B) Permite el intercambio multidisciplinario de información para esclarecer el hecho investigado",
+      "C) Establece responsabilidades legales de cada participante",
+      "D) Determina la validez legal de las evidencias recolectadas",
+      "E) Define la estrategia procesal para la fase judicial"
+    ],
+    "correcta": [1]
+  },
+
+  {
+    "texto": "¿Cuál es la principal diferencia conceptual entre la definición de investigación criminal según Lago Montejo y la de Enriquez Chipana?",
+    "opciones": [
+      "A) Lago enfatiza el aspecto interdisciplinario mientras Chipana se centra en el método científico",
+      "B) Lago se enfoca en la verdad del fenómeno delictivo mientras Chipana en la responsabilidad penal",
+      "C) Ambos autores presentan definiciones idénticas sin diferencias conceptuales",
+      "D) Lago prioriza las acciones sistemáticas mientras Chipana la recolección de evidencias",
+      "E) Lago se centra en el conocimiento mientras Chipana en el descubrimiento del hecho"
+    ],
+    "correcta": [0]
+  },
+  {
+    "texto": "En el contexto de las hipótesis sobre causas de muerte mencionadas en el texto, ¿cuál representa el mayor desafío investigativo para determinar la verdadera naturaleza del hecho?",
+    "opciones": [
+      "A) Determinar si pudo haber sido por designio del occiso",
+      "B) Establecer si fue asesinado de modo que pareciera un suicidio",
+      "C) Verificar si pudo la enfermedad haber causado la muerte",
+      "D) Confirmar si pudo haber sido el móvil por accidente",
+      "E) Identificar si hay más de una posible causa de la muerte"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "Según el Artículo 174 CPP, ¿en qué circunstancia excepcional se puede prescindir de la presencia de un testigo hábil durante el registro del lugar del hecho?",
+    "opciones": [
+      "A) Cuando el fiscal no puede concurrir al lugar del hecho",
+      "B) Cuando no sea posible contar con un testigo, debiendo asentarse en el acta los motivos",
+      "C) Cuando la policía determine que es innecesario por la naturaleza del delito",
+      "D) Cuando las condiciones meteorológicas impidan la presencia de testigos",
+      "E) Cuando el lugar del hecho esté en una zona de difícil acceso"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Cuál es la secuencia lógica correcta en la fase de 'Protección del lugar del hecho' cuando se encuentra evidencia en el camino hacia la escena del crimen?",
+    "opciones": [
+      "A) Recoger inmediatamente - fotografiar - continuar hacia el lugar",
+      "B) Ignorar temporalmente - llegar al lugar - regresar por la evidencia",
+      "C) Reservar - proteger cubriendo - fijar fotográficamente cuando sea oportuno",
+      "D) Marcar con tiza - llamar a peritos - esperar instrucciones",
+      "E) Documentar la ubicación - continuar sin alterar - reportar posteriormente"
+    ],
+    "correcta": [2]
+  },
+  {
+    "texto": "En la metodología de la ITO, ¿cuál es la razón fundamental por la que el investigador debe ingresar por una ruta que presumiblemente no fue recorrida por el autor o la víctima?",
+    "opciones": [
+      "A) Para evitar contaminar las huellas dactilares existentes en el lugar",
+      "B) Para mantener la integridad de todos los indicios y evidencias del recorrido original",
+      "C) Para cumplir con los protocolos de seguridad establecidos",
+      "D) Para facilitar el trabajo del fotógrafo forense",
+      "E) Para permitir una mejor observación panorámica del lugar"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Qué implicación técnica tiene el principio de 'EL MÍNIMO ÚTIL DE PERSONAS Y NO HAY PREMURAS' en la investigación criminalística?",
+    "opciones": [
+      "A) Reduce los costos operativos de la investigación",
+      "B) Minimiza la contaminación de evidencias y permite un trabajo meticuloso",
+      "C) Facilita la coordinación entre diferentes especialistas",
+      "D) Acelera los tiempos de procesamiento de la escena",
+      "E) Simplifica la documentación del procedimiento"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Cuál es la diferencia fundamental entre los ángulos 'Nadir' y 'Cenital' en la fotografía forense, y cuándo sería más apropiado usar cada uno?",
+    "opciones": [
+      "A) Nadir es desde abajo (90°) para huellas en suelo, Cenital desde arriba (90°) para vista general de escena",
+      "B) Nadir es horizontal para objetos, Cenital es diagonal para personas",
+      "C) Ambos son idénticos, solo cambia la terminología técnica utilizada",
+      "D) Nadir es para espacios cerrados, Cenital para espacios abiertos",
+      "E) Nadir captura detalles pequeños, Cenital captura elementos grandes"
+    ],
+    "correcta": [0]
+  },
+  {
+    "texto": "En la etapa de 'Observación del lugar del hecho', ¿por qué específicamente no se realizan anotaciones según la metodología descrita?",
+    "opciones": [
+      "A) Para evitar errores en la documentación oficial",
+      "B) Porque es una fase de reconocimiento y planificación previa a la fijación formal",
+      "C) Para mantener la confidencialidad del procedimiento",
+      "D) Porque las anotaciones corresponden exclusivamente al fiscal",
+      "E) Para no interferir con el trabajo de los peritos especialistas"
+    ],
+    "correcta": [1]
+  },
+
+  {
+    "texto": "¿Cuál es la relación funcional entre la 'nitidez' y la 'exactitud' como requisitos esenciales de la fotografía forense?",
+    "opciones": [
+      "A) La nitidez garantiza la calidad técnica mientras la exactitud asegura la fidelidad probatoria",
+      "B) Ambos conceptos son sinónimos en el contexto forense",
+      "C) La nitidez es opcional pero la exactitud es obligatoria",
+      "D) La nitidez se refiere al equipo usado, la exactitud al procedimiento seguido",
+      "E) La nitidez es para el tribunal, la exactitud para los investigadores"
+    ],
+    "correcta": [0]
+  },
+  {
+    "texto": "¿Qué factor determina la decisión de implementar 'cordones o cintas de protección' en el lugar del hecho según la metodología establecida?",
+    "opciones": [
+      "A) La gravedad del delito cometido",
+      "B) La disponibilidad de personal policial",
+      "C) Las circunstancias que aconsejen proteger el lugar más expuesto a alterarse",
+      "D) Las condiciones meteorológicas del momento",
+      "E) La presencia o ausencia del fiscal en el lugar"
+    ],
+    "correcta": [2]
+  },
+  {
+    "texto": "En el contexto de las 'ramificaciones' del lugar del hecho, ¿qué complejidad investigativa representa el ejemplo dado de Juan que mata a Pedro y traslada el cadáver?",
+    "opciones": [
+      "A) La necesidad de investigar múltiples escenas interconectadas cronológicamente",
+      "B) La dificultad para establecer la jurisdicción competente",
+      "C) La complejidad para determinar la causa de muerte",
+      "D) El problema de identificar a los testigos presenciales",
+      "E) La dificultad para preservar evidencias en múltiples ubicaciones"
+    ],
+    "correcta": [0]
+  },
+  {
+    "texto": "¿Cuál es la implicación procesal de que las actuaciones de registro puedan realizarse 'sin presencia del fiscal únicamente en casos de urgencia'?",
+    "opciones": [
+      "A) Que la validez probatoria se ve comprometida automáticamente",
+      "B) Que se mantiene la legalidad pero se requiere justificación posterior",
+      "C) Que solo la policía puede determinar qué constituye urgencia",
+      "D) Que estas actuaciones no pueden ser incorporadas al juicio",
+      "E) Que se debe repetir el procedimiento cuando llegue el fiscal"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Qué metodología específica debe seguir el investigador especial para la detección de 'posibles olores en el ambiente' durante la observación?",
+    "opciones": [
+      "A) Utilizar equipos especializados de detección química",
+      "B) Realizar muestreos sistemáticos del aire ambiente",
+      "C) El texto no especifica una metodología particular para esta tarea",
+      "D) Coordinar con peritos químicos especializados",
+      "E) Documentar mediante fotografías especializadas"
+    ],
+    "correcta": [2]
+  },
+  {
+    "texto": "¿Cuál es la razón técnica por la que se requiere 'detenerse a unos 50 m. del Lugar del Hecho' antes de proceder al acercamiento?",
+    "opciones": [
+      "A) Para evaluar las condiciones de seguridad del perímetro",
+      "B) Para realizar el 'caminar policial' inspeccionando y buscando rastros e indicios en el trayecto",
+      "C) Para coordinar con las unidades de apoyo necesarias",
+      "D) Para verificar que no haya personas no autorizadas en el área",
+      "E) Para preparar el equipo técnico antes del ingreso"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "En la metodología de planos fotográficos, ¿cuál es la progresión lógica que debe seguirse y qué elementos técnicos específicos requiere cada nivel?",
+    "opciones": [
+      "A) General-Panorámica-Detalle-Mínimo detalle, todos requieren testigo métrico",
+      "B) Panorámica-General-Detalle-Mínimo detalle, solo detalle requiere testigo métrico",
+      "C) Panorámica-General(señaléticas)-Detalle(testigo métrico)-Mínimo detalle",
+      "D) El orden es flexible según el criterio del fotógrafo forense",
+      "E) Todos los planos requieren las mismas especificaciones técnicas"
+    ],
+    "correcta": [2]
+  },
+  {
+    "texto": "¿Qué diferencia conceptual existe entre 'rastros' y 'otros efectos materiales' mencionados en el Artículo 174 CPP?",
+    "opciones": [
+      "A) Los rastros son visibles, los efectos materiales son microscópicos",
+      "B) Los rastros son temporales, los efectos materiales son permanentes",
+      "C) El texto no establece una diferenciación clara entre ambos conceptos",
+      "D) Los rastros son dejados por personas, los efectos por objetos",
+      "E) Los rastros requieren análisis especial, los efectos son evidentes"
+    ],
+    "correcta": [2]
+  },
+  {
+    "texto": "¿Cuál es la complejidad procedimental que implica el 'rauteo' del cuerpo cuando se comprueba que hay vida?",
+    "opciones": [
+      "A) Debe realizarse antes de cualquier maniobra de auxilio médico",
+      "B) Se marca el contorno para preservar la posición original antes del traslado médico urgente",
+      "C) Solo se realiza si el médico forense está presente",
+      "D) Es opcional según las circunstancias de cada caso",
+      "E) Se realiza únicamente cuando no hay posibilidad de supervivencia"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Qué implicación tiene la afirmación 'todos los asesinatos son homicidios, pero no todos los homicidios son asesinatos' para la investigación criminalística?",
+    "opciones": [
+      "A) Determina el tipo de peritos que deben intervenir en cada caso",
+      "B) Establece diferentes protocolos de investigación según la clasificación",
+      "C) Requiere diferentes niveles de análisis forense según la tipificación legal",
+      "D) Influye en la formulación de hipótesis sobre las causas de muerte y métodos investigativos",
+      "E) No tiene implicación práctica en el procedimiento criminalístico"
+    ],
+    "correcta": [3]
+  },
+  {
+    "texto": "¿Cuál es la función específica del 'testigo métrico' en la fotografía de detalle y por qué no se menciona su uso en otros planos fotográficos?",
+    "opciones": [
+      "A) Proporciona escala de referencia precisa para elementos específicos que requieren medición exacta",
+      "B) Es un requisito legal obligatorio para toda fotografía forense",
+      "C) Facilita la identificación de objetos pequeños en la escena",
+      "D) Permite la calibración automática de la cámara fotográfica",
+      "E) Es una medida de seguridad para validar la autenticidad de las fotografías"
+    ],
+    "correcta": [0]
+  },
+
+
+// BOLO 6-----------------------------------------------------------------
+{
+    "texto": "¿Cuál es la implicación fundamental del principio 'LA FOTOGRAFÍA COPIA, REPRODUCE, PERO NO CREA' en el contexto de su valor probatorio en el proceso penal boliviano?",
+    "opciones": [
+      "A) Establece que la fotografía es más confiable que el testimonio humano",
+      "B) Define que la fotografía debe ser objetiva y fiel a la realidad para tener validez legal",
+      "C) Indica que la fotografía requiere interpretación subjetiva del investigador",
+      "D) Determina que la fotografía es superior a otras formas de evidencia",
+      "E) Significa que la fotografía no puede ser manipulada digitalmente"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Por qué específicamente el 'poder de síntesis' de la fotografía forense es considerado 'único e insustituible' según el texto?",
+    "opciones": [
+      "A) Porque permite reducir costos operativos en la investigación",
+      "B) Porque condensa información compleja en una imagen que transmite inmediatamente condiciones espaciales, evidencias y relaciones topográficas",
+      "C) Porque elimina la necesidad de redactar informes escritos",
+      "D) Porque facilita la identificación de sospechosos automáticamente",
+      "E) Porque garantiza la condena en procesos judiciales"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Cuál es la diferencia fundamental entre la 'evidencia circunstancial' que representa la fotografía y la evidencia directa en el proceso penal?",
+    "opciones": [
+      "A) La fotografía prueba el hecho por sí misma, la evidencia directa requiere interpretación",
+      "B) La fotografía no prueba por sí misma el hecho sino que amplía y apoya las demás pruebas",
+      "C) La fotografía tiene mayor valor probatorio que la evidencia directa",
+      "D) La evidencia directa es menos confiable que la evidencia fotográfica",
+      "E) No existe diferencia práctica entre ambos tipos de evidencia"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Qué complejidad técnica específica representa el uso de 'duplicadores de distancia focal' en la fotografía forense?",
+    "opciones": [
+      "A) Requieren calibración especial para mantener la nitidez requerida",
+      "B) Producen pérdida de luminosidad mientras doblan o triplican el objetivo focal",
+      "C) Solo funcionan con películas de alta sensibilidad ASA",
+      "D) Necesitan filtros especiales para su correcto funcionamiento",
+      "E) Son incompatibles con flash electrónico"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Por qué el investigador especial debe 'hacer desocupar a los investigadores que estén trabajando dentro de la escena del crimen' al momento de fotografiar?",
+    "opciones": [
+      "A) Para evitar interferencias en la iluminación de las fotografías",
+      "B) Para mantener la privacidad de los procedimientos investigativos",
+      "C) Para que la fotografía describa la escena tal como se encontró en el momento del hecho, sin contaminación visual",
+      "D) Para cumplir con protocolos de seguridad establecidos",
+      "E) Para facilitar el manejo del equipo fotográfico profesional"
+    ],
+    "correcta": [2]
+  },
+  {
+    "texto": "¿Cuál es la ventaja específica del 'ángulo Nadir' (desde abajo 90°) sobre otros ángulos en situaciones investigativas particulares?",
+    "opciones": [
+      "A) Proporciona mejor iluminación natural para la fotografía",
+      "B) Permite capturar orificios, impactos de proyectil y manchas en techos o partes superiores no visibles desde otras perspectivas",
+      "C) Facilita el uso de equipos fotográficos estándar",
+      "D) Reduce la distorsión óptica de los lentes gran angular",
+      "E) Es más rápido de ejecutar que otros ángulos fotográficos"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Qué implicación jurídica tiene la requirement de 'formato original inalterado (no editado)' para la validez legal del material filmado?",
+    "opciones": [
+      "A) Garantiza la calidad técnica de la grabación",
+      "B) Facilita la reproducción en diferentes dispositivos",
+      "C) Preserva la autenticidad y integridad de la evidencia para su valor probatorio",
+      "D) Permite la compatibilidad con sistemas judiciales",
+      "E) Reduce el espacio de almacenamiento requerido"
+    ],
+    "correcta": [2]
+  },
+  {
+    "texto": "¿Cuál es la diferencia metodológica fundamental entre 'Planimetría de Campo' y 'Planimetría de Gabinete'?",
+    "opciones": [
+      "A) Campo usa herramientas manuales, Gabinete usa herramientas digitales",
+      "B) Campo se ejecuta en el lugar del hecho con levantamiento directo, Gabinete elabora representación definitiva en laboratorio",
+      "C) Campo es responsabilidad policial, Gabinete es responsabilidad fiscal",
+      "D) Campo requiere menos precisión que Gabinete",
+      "E) Ambas son metodologías idénticas con diferente nomenclatura"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Por qué específicamente se debe usar 'luz actínica o foto flood' en fotografía forense según las especificaciones técnicas?",
+    "opciones": [
+      "A) Porque proporciona mayor intensidad lumínica que otras fuentes",
+      "B) Porque se asemeja a la luz del sol, proporcionando reproducción cromática natural",
+      "C) Porque es más económica que el flash electrónico",
+      "D) Porque permite fotografías de mayor resolución",
+      "E) Porque reduce las sombras en espacios cerrados"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Qué complejidad representa la 'macro fotografía' en el contexto de evidencias forenses microscópicas?",
+    "opciones": [
+      "A) Requiere películas de sensibilidad especial ASA 1600",
+      "B) Necesita objetivos estándar con accesorios como fuelles, tubos de extensión o lentes Closap",
+      "C) Solo funciona con cámaras completamente automáticas",
+      "D) Precisa iluminación exclusivamente natural",
+      "E) Requiere revelado químico especializado"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Cuál es la función específica de la 'triangulación' en la metodología de planimetría de campo?",
+    "opciones": [
+      "A) Facilita la orientación magnética del lugar del hecho",
+      "B) Permite establecer relaciones geométricas precisas para ubicación de evidencias",
+      "C) Mejora la calidad del croquizado manual preliminar",
+      "D) Reduce errores en la medición con cinta métrica",
+      "E) Optimiza el uso de coordenadas GPS"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Por qué las escalas '1:50 o 1:100 en espacios cerrados' y '1:200 o 1:500 para exteriores amplios' son recomendaciones técnicas específicas?",
+    "opciones": [
+      "A) Por limitaciones del papel estándar disponible",
+      "B) Por la necesidad de proporcionalidad visual adecuada según el tamaño del espacio a representar",
+      "C) Por requerimientos legales del Código de Procedimiento Penal",
+      "D) Por compatibilidad con software de diseño asistido",
+      "E) Por estándares internacionales de criminalística"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Qué implicación técnica tiene el uso de 'línea punteada' para representar 'trayectorias y caídas' en la simbología planimetrica?",
+    "opciones": [
+      "A) Indica elementos de menor importancia probatoria",
+      "B) Representa movimientos o recorridos inferidos, no estructuras físicas",
+      "C) Señala áreas de acceso restringido en la escena",
+      "D) Marca zonas que requieren análisis adicional",
+      "E) Identifica elementos que fueron removidos de la escena"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Cuál es la complejidad específica del 'modelado virtual y realidad aumentada' mencionado por Zappalà et al. (2024) en reconstrucciones judiciales?",
+    "opciones": [
+      "A) Requiere equipos de alta tecnología no disponibles en Bolivia",
+      "B) Permite recorrer virtualmente la escena facilitando la comprensión judicial del caso",
+      "C) Solo funciona con escenas de espacios cerrados",
+      "D) Necesita autorización judicial previa para su implementación",
+      "E) Es incompatible con métodos tradicionales de planimetría"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Por qué el 'zoom' representa una ventaja técnica específica sobre los objetivos de distancia focal fija?",
+    "opciones": [
+      "A) Proporciona mejor calidad de imagen que los lentes fijos",
+      "B) Permite cambiar o variar de forma continua la distancia focal sin cambiar de lente",
+      "C) Reduce el peso del equipo fotográfico forense",
+      "D) Elimina la necesidad de usar filtros especiales",
+      "E) Facilita la fotografía en condiciones de poca luz"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Qué función específica cumple la 'cadena de custodia documentada' para material filmado según la normativa boliviana?",
+    "opciones": [
+      "A) Facilita la reproducción técnica del material",
+      "B) Garantiza la trazabilidad e integridad desde captura hasta entrega al fiscal",
+      "C) Permite la edición autorizada del material",
+      "D) Mejora la calidad de reproducción en juicio oral",
+      "E) Reduce costos de almacenamiento digital"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Cuál es la implicación de que los filtros 'absorben radiaciones luminosas' y requieran 'abrir el diafragma o reducir la velocidad'?",
+    "opciones": [
+      "A) Mejoran la nitidez pero reducen la profundidad de campo",
+      "B) Modifican la exposición lumínica requiriendo compensación técnica para mantener la imagen correcta",
+      "C) Aumentan la sensibilidad de la película fotográfica",
+      "D) Facilitan la fotografía en espacios cerrados",
+      "E) Eliminan reflejos no deseados automáticamente"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Por qué específicamente se recomienda 'fotografías de distintos ángulos de perspectiva' para que sean admitidas como prueba?",
+    "opciones": [
+      "A) Para cumplir con requisitos mínimos de cantidad",
+      "B) Para dar una sensación completa del lugar del hecho y facilitar el entendimiento a las partes interesadas",
+      "C) Para demostrar la habilidad técnica del fotógrafo",
+      "D) Para permitir selección posterior de las mejores imágenes",
+      "E) Para redundancia en caso de daño de algunas fotografías"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Qué complejidad técnica específica presenta la 'técnica de abatimiento o desdoblamiento' en planimetría forense?",
+    "opciones": [
+      "A) Requiere cálculos matemáticos complejos para su ejecución",
+      "B) Permite representar objetos en perspectiva como si se mirara desde ángulo elevado, mostrando disposición en un solo plano",
+      "C) Solo es aplicable en espacios cerrados de geometría regular",
+      "D) Necesita software especializado para su elaboración",
+      "E) Está limitada a evidencias de tamaño específico"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Cuál es la función específica del 'norte magnético' en el geoposicionamiento de la planimetría de campo?",
+    "opciones": [
+      "A) Facilita la navegación de los investigadores en el lugar",
+      "B) Permite la orientación correcta del plano y garantiza referenciación futura",
+      "C) Mejora la precisión de las mediciones con cinta métrica",
+      "D) Es requerido únicamente para espacios exteriores amplios",
+      "E) Facilita la coordinación con otras unidades policiales"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Por qué las 'películas ASA 25 hasta ASA 1600' representan diferentes opciones técnicas según las condiciones de la investigación?",
+    "opciones": [
+      "A) ASA bajo para exteriores, ASA alto para interiores",
+      "B) Se diferencian por dureza o sensibilidad, permitiendo adaptación a condiciones lumínicas específicas",
+      "C) ASA alto proporciona mejor calidad, ASA bajo es más económico",
+      "D) ASA bajo para evidencias grandes, ASA alto para detalles pequeños",
+      "E) La selección depende del tipo de delito investigado"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Qué implicación procesal tiene que las cámaras filmadoras 'protejan al servidor policial' al evidenciar la legalidad de su actuación?",
+    "opciones": [
+      "A) Facilita la defensa legal en caso de denuncias disciplinarias",
+      "B) Garantiza transparencia y debido proceso, previniendo abusos y acusaciones infundadas",
+      "C) Mejora la imagen institucional de la policía boliviana",
+      "D) Reduce costos de seguimiento disciplinario interno",
+      "E) Facilita la capacitación de nuevos efectivos policiales"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Cuál es la ventaja específica de las 'escalas ampliadas para evidencias pequeñas (1:5, 1:10)' en la planimetría forense?",
+    "opciones": [
+      "A) Facilita el trabajo manual del planimetrista",
+      "B) Permite representar con detalle suficiente elementos que serían invisibles en escalas normales",
+      "C) Reduce errores de medición en campo",
+      "D) Mejora la presentación estética del plano",
+      "E) Es requerido por normativas internacionales"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Por qué según Araúz (2019) la división entre planimetría de campo y gabinete 'optimiza la cadena de custodia y evita errores de interpretación'?",
+    "opciones": [
+      "A) Permite especialización técnica de los investigadores",
+      "B) Separa la recolección directa de datos de su procesamiento final, manteniendo integridad y precisión",
+      "C) Reduce tiempos de elaboración de planos definitivos",
+      "D) Facilita la supervisión de calidad del trabajo realizado",
+      "E) Permite uso de tecnología más avanzada en gabinete"
+    ],
+    "correcta": [1]
+  },
+
+
+// BOLO 7-----------------------------------------------------------------
+{
+    "texto": "¿Por qué la espectroscopía vibracional representa un avance significativo en el análisis de residuos de disparo según las técnicas modernas de conservación mencionadas en el documento?",
+    "opciones": [
+      "A) Permite mayor velocidad en el procesamiento de muestras",
+      "B) Analiza residuos de disparo sin comprometer la integridad de la muestra",
+      "C) Reduce significativamente los costos del análisis forense",
+      "D) Elimina la necesidad de cadena de custodia",
+      "E) Permite análisis remoto de las evidencias"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "En el contexto de la Ley N.º 400 boliviana, ¿cuál es la razón fundamental por la que se establece una diferenciación entre armas de uso civil, deportivo, institucional y prohibidas?",
+    "opciones": [
+      "A) Facilitar el control tributario de las armas",
+      "B) Garantizar la seguridad pública y prevenir el uso indebido según el poder destructivo y fin lícito",
+      "C) Simplificar los procesos de importación y exportación",
+      "D) Establecer diferentes precios de mercado",
+      "E) Cumplir con tratados internacionales únicamente"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Por qué el signo de Benassi específicamente requiere contacto con hueso subyacente para manifestarse en heridas de contacto?",
+    "opciones": [
+      "A) El hueso es más conductivo térmicamente que los tejidos blandos",
+      "B) La dureza del hueso permite que se imprima la forma del cañón por la presión y temperatura del disparo",
+      "C) Los gases de combustión se concentran únicamente sobre superficies óseas",
+      "D) El hueso reacciona químicamente con los residuos de pólvora",
+      "E) La vascularización ósea facilita la fijación de la marca"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Cuál es la importancia criminológica específica de que el perfil típico de víctimas sea 'jóvenes varones entre 18 a 35 años con antecedentes de violencia previa'?",
+    "opciones": [
+      "A) Facilita la identificación de sospechosos",
+      "B) Indica patrones de violencia cíclica y factores de riesgo criminógenos en poblaciones específicas",
+      "C) Permite mejor asignación de recursos policiales",
+      "D) Simplifica los procesos judiciales",
+      "E) Reduce el tiempo de investigación"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Por qué la técnica de Walker modificada utiliza específicamente papel fotográfico sensibilizado y vapores de reactivos para detectar residuos de pólvora?",
+    "opciones": [
+      "A) El papel fotográfico es más económico que otros medios",
+      "B) Los vapores permiten mejor penetración en fibras textiles",
+      "C) La sensibilización del papel permite revelado visible de nitratos mediante reacción química controlada",
+      "D) Facilita el almacenamiento prolongado de las muestras",
+      "E) Evita la contaminación cruzada entre muestras"
+    ],
+    "correcta": [2]
+  },
+  {
+    "texto": "En el análisis de disparos a mediana distancia (30 cm a 1 metro), ¿qué significa específicamente que el 'tatuaje sea más tenue o ausente' en términos de la física del disparo?",
+    "opciones": [
+      "A) Los gases se enfrían completamente a esa distancia",
+      "B) La dispersión y pérdida de energía de partículas de pólvora sin quemar reduce su capacidad de incrustarse en la piel",
+      "C) La gravedad afecta la trayectoria de los residuos",
+      "D) La resistencia del aire elimina todos los residuos",
+      "E) El proyectil consume toda la pólvora en su trayectoria"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Por qué es fundamental utilizar bolsas de papel kraft y nunca de plástico para embalar prendas con posibles residuos de disparo?",
+    "opciones": [
+      "A) El papel kraft es más resistente a la manipulación",
+      "B) Las bolsas de plástico son más costosas",
+      "C) El papel permite transpiración y evita alteraciones por humedad que podrían degradar los residuos químicos",
+      "D) Las bolsas de papel facilitan el marcado de evidencias",
+      "E) El plástico interfiere con análisis espectroscópicos posteriores"
+    ],
+    "correcta": [2]
+  },
+  {
+    "texto": "¿Cuál es la razón técnica por la que proyectiles de alta velocidad pueden perforar huesos grandes sin fracturarlos?",
+    "opciones": [
+      "A) Los huesos grandes tienen mayor densidad",
+      "B) La alta velocidad no permite transferencia completa de energía, atravesando antes de que el hueso pueda fracturarse",
+      "C) Los proyectiles de alta velocidad son necesariamente de menor calibre",
+      "D) La forma aerodinámica reduce el impacto",
+      "E) El material del proyectil es más blando a altas velocidades"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "En el contexto de la microscopía electrónica de barrido (SEM-EDX), ¿por qué esta técnica es considerada 'la más confiable y aceptada internacionalmente' para análisis de GSR?",
+    "opciones": [
+      "A) Es la técnica más económica disponible",
+      "B) Permite identificar simultáneamente morfología específica y composición química elemental de partículas de GSR",
+      "C) Requiere menor cantidad de muestra que otras técnicas",
+      "D) Es más rápida que los métodos convencionales",
+      "E) No requiere preparación especial de las muestras"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Por qué el 'efecto de estallido' en disparos de contacto sobre cavidades corporales cerradas como el cráneo tiene relevancia forense específica?",
+    "opciones": [
+      "A) Facilita la extracción del proyectil",
+      "B) La expansión súbita de gases en espacio confinado produce patrones de fractura y lesiones característicos que confirman el contacto",
+      "C) Permite mejor conservación de evidencias",
+      "D) Acelera el proceso de muerte",
+      "E) Facilita la identificación de la víctima"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Cuál es la importancia criminológica específica de que en el sicariato se evidencien 'disparos múltiples a zonas vitales, armas automáticas, nula evidencia en el lugar del hecho'?",
+    "opciones": [
+      "A) Facilita la captura del agresor",
+      "B) Indica planificación, profesionalización del crimen y conocimiento técnico específico del autor",
+      "C) Reduce el tiempo de investigación",
+      "D) Permite mejor clasificación estadística",
+      "E) Simplifica el análisis balístico"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "En el análisis de radiología forense post mortem, ¿por qué es fundamental localizar proyectiles antes de la autopsia mediante rayos X o tomografía computarizada?",
+    "opciones": [
+      "A) Reduce el tiempo de autopsia",
+      "B) Permite planificar la disección sin alterar trayectorias internas y preservar evidencia balística intacta",
+      "C) Es un requisito legal obligatorio",
+      "D) Facilita la comunicación con familiares",
+      "E) Reduce costos del procedimiento"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Por qué el método de la parafina (dermonitrotest) está 'actualmente en desuso por su falta de especificidad y posibles falsos positivos'?",
+    "opciones": [
+      "A) Es muy costoso de realizar",
+      "B) Requiere equipamiento especializado",
+      "C) Los nitratos detectados pueden provenir de múltiples fuentes no relacionadas con disparos (fertilizantes, fuegos artificiales)",
+      "D) Toma demasiado tiempo procesar las muestras",
+      "E) No es admitido en procesos judiciales"
+    ],
+    "correcta": [2]
+  },
+  {
+    "texto": "En la reconstrucción del hecho, ¿por qué es específicamente importante correlacionar 'la autopsia, los peritajes balísticos y los informes periciales'?",
+    "opciones": [
+      "A) Es un requisito procesal obligatorio",
+      "B) Facilita la elaboración de informes",
+      "C) La triangulación de evidencias físicas, balísticas y médico-legales permite validación cruzada y reconstrucción precisa de la dinámica del hecho",
+      "D) Reduce la cantidad de pruebas necesarias",
+      "E) Acelera el proceso judicial"
+    ],
+    "correcta": [2]
+  },
+  {
+    "texto": "¿Cuál es la razón técnica específica por la cual 'las estrías del cañón dejan marcas características en los proyectiles, útiles para la identificación balística'?",
+    "opciones": [
+      "A) Las estrías aumentan la velocidad del proyectil",
+      "B) Cada arma tiene un patrón único de estrías que se transfiere al proyectil durante el disparo, como una 'huella dactilar' del arma",
+      "C) Las estrías mejoran la precisión del disparo",
+      "D) Facilitan la extracción del proyectil del cañón",
+      "E) Reducen el retroceso del arma"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "En el contexto de factores criminógenos, ¿por qué la 'normalización del uso del arma para resolver conflictos' representa un factor de riesgo social específico?",
+    "opciones": [
+      "A) Aumenta las ventas de armas",
+      "B) Crea una cultura de violencia donde el arma se percibe como solución legítima, perpetuando ciclos de violencia armada",
+      "C) Facilita el trabajo policial",
+      "D) Reduce otros tipos de violencia",
+      "E) Simplifica las investigaciones criminales"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Por qué en el análisis de orificios de salida 'no se presentan anillos de enjugamiento, contusión, tatuaje ni ahumamiento'?",
+    "opciones": [
+      "A) El proyectil pierde velocidad al atravesar el cuerpo",
+      "B) Estos signos son específicos del momento del disparo y solo ocurren en el punto de entrada donde actúan gases y residuos",
+      "C) La salida ocurre en tejidos diferentes",
+      "D) El proyectil se deforma durante el trayecto",
+      "E) La presión interna es menor en la salida"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "En el análisis de espectrometría de masas acoplada a plasma (ICP-MS), ¿cuál es su ventaja específica sobre otras técnicas para detectar residuos de disparo?",
+    "opciones": [
+      "A) Es más económica que otras técnicas",
+      "B) Requiere menos tiempo de procesamiento",
+      "C) Permite detectar concentraciones extremadamente pequeñas de elementos característicos con alta precisión analítica",
+      "D) Es más fácil de operar",
+      "E) No requiere preparación de muestras"
+    ],
+    "correcta": [2]
+  },
+  {
+    "texto": "¿Por qué es fundamental considerar que 'algunas actividades industriales o cotidianas pueden producir residuos con composiciones similares' al interpretar análisis de GSR?",
+    "opciones": [
+      "A) Facilita la defensa legal del acusado",
+      "B) Reduce la confiabilidad de todas las pruebas",
+      "C) Obliga al uso de técnicas de alta especificidad para evitar falsos positivos y errores judiciales",
+      "D) Simplifica el análisis estadístico",
+      "E) Permite usar técnicas menos costosas"
+    ],
+    "correcta": [2]
+  },
+  {
+    "texto": "En el contexto de la cadena de custodia, ¿por qué debe mantenerse 'un registro detallado de cada persona que manipula la evidencia, desde su recolección hasta su presentación en el tribunal'?",
+    "opciones": [
+      "A) Es un requisito administrativo solamente",
+      "B) Facilita el trabajo de los abogados",
+      "C) Garantiza la integridad, autenticidad y admisibilidad legal de la evidencia mediante trazabilidad completa",
+      "D) Permite mejor organización del laboratorio",
+      "E) Reduce los costos procesales"
+    ],
+    "correcta": [2]
+  },
+
+
+
+// BOLO 8-----------------------------------------------------------------
+ {
+    "texto": "Según el Cnl. Jaldibeck Escobar Vega, ¿por qué es fundamental que en la entrevista uno de los participantes asuma un 'rol activo' mientras el otro cumple un 'rol pasivo'?",
+    "opciones": [
+      "A) Facilita el control del tiempo de la entrevista",
+      "B) Permite mantener estructura y dirección en la obtención de información objetiva, evitando dispersión temática",
+      "C) Reduce la ansiedad del entrevistado",
+      "D) Simplifica la documentación del proceso",
+      "E) Cumple requisitos legales específicos"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Por qué la entrevista al presunto autor requiere específicamente la presencia del fiscal Y su abogado defensor para evitar 'obtención ilícita de información'?",
+    "opciones": [
+      "A) Es un requisito administrativo del Código de Procedimiento Penal",
+      "B) Facilita la documentación legal del proceso",
+      "C) Garantiza el derecho constitucional a la defensa técnica y previene autoincriminación forzada según el principio de legalidad procesal",
+      "D) Acelera el proceso investigativo",
+      "E) Permite mejor coordinación interinstitucional"
+    ],
+    "correcta": [2]
+  },
+  {
+    "texto": "¿Cuál es la razón técnica fundamental por la que la entrevista 'no tiene valor legal por sí sola' hasta convertirse en declaración informativa formal?",
+    "opciones": [
+      "A) Carece de formalidades procesales y debe ser corroborada con evidencias objetivas para adquirir valor probatorio",
+      "B) No está firmada por el entrevistado",
+      "C) No se realiza bajo juramento",
+      "D) Falta la presencia de testigos",
+      "E) No cumple requisitos de tiempo específicos"
+    ],
+    "correcta": [0]
+  },
+  {
+    "texto": "En el modelo PEACE desarrollado por Scotland Yard, ¿por qué la fase de 'Establecimiento del Rapport' es técnicamente crucial antes del desarrollo del relato?",
+    "opciones": [
+      "A) Cumple requisitos legales internacionales",
+      "B) Facilita la grabación de la entrevista",
+      "C) Genera confianza y ambiente libre de presiones, favoreciendo la colaboración voluntaria y reduciendo resistencia psicológica",
+      "D) Permite identificar mentiras más fácilmente",
+      "E) Acelera el proceso de obtención de información"
+    ],
+    "correcta": [2]
+  },
+  {
+    "texto": "¿Por qué el FBI específicamente exige 'no interrumpir el relato inicial del testigo' en su protocolo de Entrevista Cognitiva?",
+    "opciones": [
+      "A) Facilita la transcripción posterior",
+      "B) Respeta los procesos mentales naturales de memoria y evita contaminar o fragmentar el recuerdo espontáneo",
+      "C) Cumple requisitos legales específicos",
+      "D) Permite mejor análisis del lenguaje corporal",
+      "E) Reduce el tiempo total de la entrevista"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Cuál es la importancia específica de que un entrevistado 'extremadamente solícito' requiera 'verificación rigurosa' según la tipología presentada?",
+    "opciones": [
+      "A) Siempre está mintiendo intencionalmente",
+      "B) Ofrece información excesiva muchas veces basada en suposiciones, requiriendo contraste con evidencias objetivas",
+      "C) Es más cooperativo que otros tipos",
+      "D) Facilita el cierre rápido del caso",
+      "E) Permite obtener más detalles del hecho"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "En el contexto de Abarca Fernández (2020), ¿por qué la entrevista cumple funciones 'exploratorias, confirmatorias y estratégicas' simultáneamente?",
+    "opciones": [
+      "A) Facilita la organización del expediente",
+      "B) Permite construir hipótesis, identificar responsables y validar evidencias en un proceso investigativo integral",
+      "C) Cumple diferentes requisitos legales",
+      "D) Acelera los tiempos procesales",
+      "E) Reduce costos de investigación"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Por qué Europol en su Manual (2022) específicamente exige que el investigador desarrolle 'inteligencia emocional y neutralidad' durante la entrevista?",
+    "opciones": [
+      "A) Facilita la comunicación interpersonal básica",
+      "B) Permite mantener objetividad analítica y evitar sesgos que contaminen la obtención de información veraz",
+      "C) Cumple estándares internacionales de calidad",
+      "D) Mejora la imagen institucional",
+      "E) Reduce conflictos con los entrevistados"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "En la técnica de 'entrevista puerta a puerta', ¿cuál es su valor criminológico específico como 'técnica de rastreo'?",
+    "opciones": [
+      "A) Facilita el contacto con la comunidad",
+      "B) Permite identificar testigos indirectos y localizar evidencias en zonas cercanas a la escena del crimen",
+      "C) Cumple requisitos de investigación exhaustiva",
+      "D) Mejora las relaciones policía-comunidad",
+      "E) Acelera el proceso investigativo"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Por qué el modelo de Fisher & Geiselman (1992) específicamente incluye la fase de 'Reflexión' con preguntas de aclaración?",
+    "opciones": [
+      "A) Facilita la documentación completa",
+      "B) Permite verificar la comprensión mutua y ampliar detalles relevantes sin inducir respuestas",
+      "C) Cumple requisitos metodológicos estándar",
+      "D) Acelera el cierre de la entrevista",
+      "E) Evita malentendidos posteriores"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "En el contexto del artículo 277 del Código de Procedimiento Penal, ¿por qué la declaración informativa debe estar 'avalada por el Fiscal de Materia' para adquirir valor legal?",
+    "opciones": [
+      "A) Es una formalidad administrativa únicamente",
+      "B) El Fiscal garantiza el cumplimiento de garantías procesales y valida la legalidad de la obtención de información",
+      "C) Facilita la organización del expediente",
+      "D) Acelera el proceso judicial",
+      "E) Permite mejor coordinación institucional"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Cuál es la importancia técnica específica de que el entrevistador tenga 'preparación previa sobre el caso' según Rodríguez Manzanera (2015)?",
+    "opciones": [
+      "A) Facilita la comunicación con el entrevistado",
+      "B) Permite formular preguntas pertinentes, detectar inconsistencias y dirigir eficazmente la obtención de información relevante",
+      "C) Cumple estándares profesionales básicos",
+      "D) Reduce el tiempo de la entrevista",
+      "E) Evita repetir preguntas innecesarias"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "En la entrevista a un sujeto 'silente' que da 'respuestas breves o monosílabas', ¿por qué específicamente se requieren 'preguntas abiertas y ambiente de confianza'?",
+    "opciones": [
+      "A) Es más educado hacia el entrevistado",
+      "B) Las preguntas abiertas estimulan respuestas elaboradas mientras el ambiente de confianza reduce barreras psicológicas comunicativas",
+      "C) Facilita la transcripción posterior",
+      "D) Cumple protocolos internacionales",
+      "E) Acelera el proceso de comunicación"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Por qué el Protocolo de Estambul mencionado por Europol es relevante específicamente para evitar 'cualquier forma de tortura o presión' en entrevistas?",
+    "opciones": [
+      "A) Es un requisito legal internacional",
+      "B) Establece estándares específicos de derechos humanos para prevenir coacción física o psicológica durante interrogatorios",
+      "C) Facilita la cooperación internacional",
+      "D) Mejora la calidad de las entrevistas",
+      "E) Reduce conflictos legales posteriores"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "En la técnica de 'relato inverso' de la entrevista cognitiva, ¿cuál es su fundamento psicológico específico para 'estimular el recuerdo'?",
+    "opciones": [
+      "A) Facilita la organización cronológica de eventos",
+      "B) Activa diferentes rutas neuronales de memoria y dificulta la fabricación de testimonios falsos",
+      "C) Permite mejor comprensión del investigador",
+      "D) Acelera el proceso de recordación",
+      "E) Evita contradicciones en el relato"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Por qué Luis Rafael Moreno González específicamente recomienda incorporar 'análisis del lenguaje verbal y no verbal' en entrevistas criminales?",
+    "opciones": [
+      "A) Facilita la comunicación interpersonal",
+      "B) Permite detectar incongruencias entre lo dicho y expresado corporalmente, evaluando veracidad del testimonio",
+      "C) Cumple estándares técnicos modernos",
+      "D) Mejora la calidad de la documentación",
+      "E) Acelera la obtención de confesiones"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "En el contexto del artículo 115 de la Constitución Política del Estado, ¿por qué la información obtenida sin defensor será 'inadmisible en juicio'?",
+    "opciones": [
+      "A) Es una formalidad procesal únicamente",
+      "B) Vulnera el debido proceso constitucional y el derecho fundamental a la defensa técnica adecuada",
+      "C) Facilita la defensa del acusado",
+      "D) Acelera el proceso judicial",
+      "E) Evita conflictos entre instituciones"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Cuál es la importancia específica de 'adecuar el lenguaje al nivel cultural y educativo del entrevistado' según manuales latinoamericanos?",
+    "opciones": [
+      "A) Facilita la comprensión básica de preguntas",
+      "B) Garantiza comunicación efectiva, evita malentendidos y asegura que el entrevistado comprenda completamente sus derechos y las preguntas",
+      "C) Cumple requisitos de inclusión social",
+      "D) Mejora la imagen institucional",
+      "E) Acelera el proceso comunicativo"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "En la fase de 'Cierre y Evaluación' del modelo PEACE, ¿por qué es técnicamente importante 'resumir puntos clave para verificar comprensión mutua'?",
+    "opciones": [
+      "A) Facilita la elaboración del acta final",
+      "B) Confirma exactitud de la información registrada y previene distorsiones o malentendidos en el testimonio",
+      "C) Cumple requisitos metodológicos estándar",
+      "D) Permite mejor evaluación del entrevistado",
+      "E) Acelera el cierre del proceso"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Por qué expertos como René Lévano Quispe específicamente recomiendan 'programación neurolingüística (PNL)' en casos sensibles como violencia sexual?",
+    "opciones": [
+      "A) Facilita la comunicación con víctimas traumatizadas",
+      "B) Permite crear entorno emocionalmente seguro y técnicas comunicativas que faciliten relatos auténticos sin revictimización",
+      "C) Cumple protocolos internacionales específicos",
+      "D) Mejora la calidad del testimonio obtenido",
+      "E) Acelera el proceso de denuncia"
+    ],
+    "correcta": [1]
+  },
+
+
+// BOLO 9-----------------------------------------------------------------
+{
+    "texto": "¿Por qué el artículo 280 del CPP específicamente establece que 'durante la etapa preparatoria no se formará un expediente judicial' sino un cuaderno de investigaciones?",
+    "opciones": [
+      "A) Facilita el trabajo administrativo del juzgado",
+      "B) Mantiene la separación funcional entre etapa preparatoria e investigativa del juicio oral, preservando el principio acusatorio",
+      "C) Reduce costos procesales del sistema judicial",
+      "D) Permite mayor flexibilidad en la documentación",
+      "E) Acelera los tiempos de investigación"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "En el marco del artículo 333 del CPP, ¿cuál es la razón técnico-jurídica por la que 'sólo ciertos elementos documentales pueden incorporarse mediante su lectura' en el juicio oral?",
+    "opciones": [
+      "A) Facilita la organización del juicio",
+      "B) El principio de oralidad exige que la prueba sea producida directamente ante el tribunal, excepto casos específicos legalmente establecidos",
+      "C) Reduce el tiempo de duración del juicio",
+      "D) Permite mejor comprensión del jurado",
+      "E) Evita contradicciones entre documentos"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Por qué el artículo 298 del CPP exige que 'el investigador deberá informar de inmediato al fiscal de todos los actos investigativos desarrollados'?",
+    "opciones": [
+      "A) Es un requisito administrativo para el control institucional",
+      "B) Garantiza la dirección funcional del fiscal y la legalidad de las actuaciones investigativas bajo supervisión ministerial",
+      "C) Facilita la elaboración de informes estadísticos",
+      "D) Permite mejor coordinación logística",
+      "E) Acelera la conclusión de la investigación"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Cuál es la importancia específica de que el cuaderno de investigaciones sea 'desformalizado' según sus características procesales?",
+    "opciones": [
+      "A) Facilita su elaboración por el investigador",
+      "B) Permite adaptabilidad a diferentes tipos delictivos sin rigidez estructural que obstaculice la investigación",
+      "C) Reduce requisitos legales complejos",
+      "D) Acelera la tramitación procesal",
+      "E) Simplifica el acceso de las partes"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "En el contexto del artículo 8 de la Ley N.º 260, ¿por qué las partes intervinientes tienen derecho a conocer el contenido del cuaderno 'salvo casos de reserva justificada por el fiscal'?",
+    "opciones": [
+      "A) Facilita la defensa técnica de las partes",
+      "B) El principio de contradicción exige acceso a la información, pero se preserva la reserva cuando pueda afectar la investigación",
+      "C) Es un requisito constitucional básico",
+      "D) Permite mejor preparación del juicio",
+      "E) Acelera la resolución del caso"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Por qué los documentos del cuaderno 'no tienen valor probatorio autónomo en juicio' según el sistema acusatorio?",
+    "opciones": [
+      "A) Facilita la organización procesal del juicio",
+      "B) El principio de inmediación exige que la prueba sea producida y controvertida directamente ante el tribunal de juicio",
+      "C) Reduce la complejidad del proceso judicial",
+      "D) Permite mayor flexibilidad en la valoración",
+      "E) Acelera la deliberación del tribunal"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "En el marco del artículo 301 del CPP, ¿cuál es la importancia de que 'el fiscal analice las actuaciones policiales para imputar, complementar diligencias, rechazar o solicitar salidas alternativas'?",
+    "opciones": [
+      "A) Facilita el control administrativo del caso",
+      "B) Ejercita el control de legalidad y permite la evaluación técnico-jurídica para la toma de decisiones procesales fundamentadas",
+      "C) Cumple requisitos de supervisión institucional",
+      "D) Acelera la conclusión de la etapa preparatoria",
+      "E) Permite mejor organización del trabajo fiscal"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Por qué la 'falta de interoperabilidad de sistemas informáticos y bases de datos entre instituciones' representa un reto específico para la coordinación interinstitucional?",
+    "opciones": [
+      "A) Aumenta los costos operativos del sistema",
+      "B) Limita el flujo oportuno de información y retrasa decisiones procesales clave, afectando la eficacia investigativa",
+      "C) Complica el trabajo administrativo",
+      "D) Reduce la calidad de los informes",
+      "E) Dificulta la supervisión institucional"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "En el contexto de la dirección funcional fiscal según el artículo 78 de la Ley N.º 260, ¿por qué es fundamental que 'la Policía Boliviana actúe bajo la dirección funcional del Fiscal de Materia'?",
+    "opciones": [
+      "A) Facilita la coordinación operativa entre instituciones",
+      "B) Garantiza la legalidad de las actuaciones policiales y mantiene la separación de funciones del sistema acusatorio",
+      "C) Permite mejor uso de recursos institucionales",
+      "D) Acelera las investigaciones criminales",
+      "E) Simplifica los procedimientos administrativos"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Cuál es la importancia específica de incluir un 'índice cronológico de actuaciones' en el contenido del cuaderno de investigaciones?",
+    "opciones": [
+      "A) Facilita la organización administrativa del expediente",
+      "B) Permite verificar la secuencia temporal y legalidad de las actuaciones, garantizando trazabilidad procesal",
+      "C) Cumple requisitos formales del código procesal",
+      "D) Acelera la consulta de información",
+      "E) Simplifica el trabajo del secretario judicial"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "En el marco del artículo 306 del CPP, ¿por qué 'las partes pueden proponer diligencias en cualquier momento de la etapa preparatoria'?",
+    "opciones": [
+      "A) Facilita la participación procesal de los abogados",
+      "B) Garantiza el derecho de defensa y el principio de contradicción mediante participación activa en la construcción probatoria",
+      "C) Permite mayor flexibilidad procesal",
+      "D) Acelera la recolección de pruebas",
+      "E) Simplifica el trabajo investigativo"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Por qué la implementación del Sistema Justicia Libre (JL1) representa un 'avance importante hacia la estandarización digital' según el documento?",
+    "opciones": [
+      "A) Facilita el trabajo administrativo del Ministerio Público",
+      "B) Permite uniformización de procedimientos y mejora el flujo de información interinstitucional para fortalecer la coordinación",
+      "C) Reduce costos operativos del sistema judicial",
+      "D) Acelera la tramitación de casos",
+      "E) Simplifica el acceso ciudadano a la justicia"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "En el contexto de 'escasa capacitación conjunta en protocolos de actuación criminalística', ¿por qué esto representa un obstáculo para la coordinación efectiva?",
+    "opciones": [
+      "A) Dificulta la comunicación entre instituciones",
+      "B) Genera desarticulación en procedimientos técnicos de recolección, análisis y preservación de evidencia, afectando la calidad investigativa",
+      "C) Aumenta los tiempos de capacitación institucional",
+      "D) Complica la supervisión del trabajo técnico",
+      "E) Reduce la motivación profesional"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Cuál es la razón fundamental por la que 'fortalecer la coordinación interinstitucional implica consolidar una cultura de trabajo colaborativo basada en la legalidad'?",
+    "opciones": [
+      "A) Facilita las relaciones interpersonales entre funcionarios",
+      "B) Solo el trabajo articulado bajo principios legales garantiza un sistema de justicia penal eficaz y respetuoso del debido proceso",
+      "C) Permite mejor aprovechamiento de recursos institucionales",
+      "D) Acelera la resolución de conflictos interinstitucionales",
+      "E) Simplifica los procedimientos administrativos"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "En el marco de los artículos 297 y 298 del CPP, ¿por qué es técnicamente importante que 'la documentación adecuada y ordenada de todas las diligencias investigativas sea responsabilidad del Fiscal'?",
+    "opciones": [
+      "A) Facilita el control administrativo del proceso",
+      "B) El fiscal como director funcional debe garantizar la legalidad, sistematicidad y disponibilidad probatoria para el eventual juicio oral",
+      "C) Permite mejor organización del trabajo investigativo",
+      "D) Acelera la conclusión de la etapa preparatoria",
+      "E) Simplifica la supervisión institucional superior"
+    ],
+    "correcta": [1]
+  },
+
+
+// BOLO 10-----------------------------------------------------------------
+{
+    "texto": "¿Por qué el artículo 8 del CPP establece específicamente los principios de 'inmediación, contradicción y publicidad' como fundamentales para la declaración testimonial?",
+    "opciones": [
+      "A) Facilita la organización procesal del juicio oral",
+      "B) Garantiza que la prueba testimonial sea producida directamente ante el tribunal, controvertida por las partes y observable públicamente",
+      "C) Cumple requisitos constitucionales básicos",
+      "D) Acelera la valoración probatoria del testimonio",
+      "E) Simplifica el procedimiento judicial"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Cuál es la razón técnica específica por la que se 'prohíbe el uso del uniforme policial' durante la declaración testimonial, salvo funciones expresas?",
+    "opciones": [
+      "A) Facilita la comodidad del testigo durante su declaración",
+      "B) Evita que la investidura policial influya en la valoración del testimonio, preservando la objetividad judicial",
+      "C) Cumple protocolos de seguridad del tribunal",
+      "D) Permite mejor identificación del declarante",
+      "E) Facilita la movilidad dentro de la sala de audiencias"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "En el marco del artículo 340 del CPP, ¿por qué es fundamental que el investigador 'tenga precisadas las horas, fechas y lugares de las entrevistas' antes del juicio?",
+    "opciones": [
+      "A) Facilita la organización logística del proceso",
+      "B) Permite sustentar la trazabilidad investigativa y responder con precisión ante el contrainterrogatorio",
+      "C) Cumple requisitos administrativos del expediente",
+      "D) Acelera la presentación del testimonio",
+      "E) Simplifica la coordinación con el fiscal"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Por qué el artículo 333 del CPP específicamente exige que 'toda declaración debe hacerse en forma oral, pública y bajo interrogatorio y contrainterrogatorio'?",
+    "opciones": [
+      "A) Facilita la documentación procesal del juicio",
+      "B) El sistema acusatorio requiere producción directa de prueba ante el tribunal con plena contradicción entre las partes",
+      "C) Permite mejor comprensión del testimonio",
+      "D) Acelera el desarrollo de la audiencia",
+      "E) Simplifica la valoración probatoria"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Cuál es la importancia criminológica específica de que el contrainterrogatorio busque 'detectar posibles influencias externas' en el testimonio?",
+    "opciones": [
+      "A) Facilita la defensa técnica del imputado",
+      "B) Preserva la autenticidad del testimonio y detecta contaminación probatoria que pueda afectar la verdad procesal",
+      "C) Cumple el derecho de defensa constitucional",
+      "D) Permite mejor análisis del caso",
+      "E) Acelera la identificación de inconsistencias"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "En el contexto del artículo 169 del Código Penal, ¿por qué el falso testimonio de investigadores policiales tiene 'sanciones incrementadas' cuando recae sobre hechos esenciales?",
+    "opciones": [
+      "A) Los policías tienen mayor responsabilidad profesional",
+      "B) La falsedad en hechos esenciales compromete la integridad del proceso penal y la búsqueda de la verdad",
+      "C) Facilita el control disciplinario institucional",
+      "D) Permite mayor protección a las víctimas",
+      "E) Acelera la sanción de conductas irregulares"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Por qué es técnicamente importante que el testigo 'no hable del caso con terceros; solo con el fiscal' antes de su declaración?",
+    "opciones": [
+      "A) Facilita la coordinación procesal con el fiscal",
+      "B) Evita contaminación del testimonio y preserva la espontaneidad de la declaración ante el tribunal",
+      "C) Cumple requisitos de confidencialidad procesal",
+      "D) Permite mejor preparación de la estrategia fiscal",
+      "E) Acelera el desarrollo de la audiencia"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "En el marco del artículo 13, numeral 5 de la Ley N° 101, ¿por qué 'actuar con veracidad y transparencia' cobra mayor relevancia en el juicio oral?",
+    "opciones": [
+      "A) Es un deber institucional básico del policía",
+      "B) En juicio oral cada declaración es confrontada y cuestionada, requiriendo máxima objetividad para la credibilidad institucional",
+      "C) Facilita el cumplimiento de protocolos profesionales",
+      "D) Permite mejor imagen pública de la institución",
+      "E) Acelera la aceptación del testimonio por el tribunal"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Cuál es la razón específica por la que el tribunal 'valora no solo el contenido del testimonio, sino también su coherencia, lenguaje corporal y relación con otros medios probatorios'?",
+    "opciones": [
+      "A) Facilita la comprensión integral del caso",
+      "B) La valoración integral permite detectar veracidad, consistencia y autenticidad del testimonio mediante análisis multidimensional",
+      "C) Cumple principios de la sana crítica judicial",
+      "D) Permite mejor documentación de la audiencia",
+      "E) Acelera la deliberación del tribunal"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "En el contexto de preparación testimonial, ¿por qué es fundamental 'coordinar previamente con el fiscal para un análisis detallado, evitando contradicciones'?",
+    "opciones": [
+      "A) Facilita la organización de la estrategia procesal",
+      "B) Garantiza coherencia entre la hipótesis fiscal y el testimonio, fortaleciendo la solidez probatoria del caso",
+      "C) Cumple requisitos de coordinación interinstitucional",
+      "D) Permite mejor uso del tiempo de audiencia",
+      "E) Acelera la presentación de la prueba"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Por qué las 'objeciones buscan poner a prueba la concentración, coherencia y compostura del testigo' mediante técnicas específicas?",
+    "opciones": [
+      "A) Facilita el ejercicio del derecho de defensa",
+      "B) Evalúa la solidez del testimonio bajo presión y detecta posibles inconsistencias o fabricaciones",
+      "C) Cumple el principio de contradicción procesal",
+      "D) Permite mejor análisis de la credibilidad",
+      "E) Acelera la identificación de puntos débiles"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "En el marco del artículo 180 de la CPE, ¿por qué los principios de 'celeridad, oralidad y transparencia' obligan específicamente a los investigadores a prepararse adecuadamente?",
+    "opciones": [
+      "A) Facilita el cumplimiento de plazos procesales",
+      "B) Los principios constitucionales exigen que la prueba sea producida eficientemente, oralmente y de forma transparente ante el tribunal",
+      "C) Permite mejor coordinación interinstitucional",
+      "D) Acelera la resolución de los casos penales",
+      "E) Simplifica los procedimientos judiciales"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Cuál es la importancia específica de que 'la cadena investigativa se conecte con la judicialización mediante la exposición testimonial'?",
+    "opciones": [
+      "A) Facilita la continuidad procesal del caso",
+      "B) Garantiza que los hallazgos investigativos sean validados judicialmente mediante testimonio directo y controvertido",
+      "C) Cumple requisitos de trazabilidad procesal",
+      "D) Permite mejor documentación del expediente",
+      "E) Acelera la valoración probatoria"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "En el contexto del Protocolo Nacional de Actuación Conjunta, ¿por qué es fundamental establecer 'procedimientos estandarizados para la recolección y exposición de prueba'?",
+    "opciones": [
+      "A) Facilita la coordinación operativa entre instituciones",
+      "B) La estandarización garantiza calidad, uniformidad y legalidad en la producción probatoria, evitando fragmentación de la verdad procesal",
+      "C) Cumple requisitos de cooperación interinstitucional",
+      "D) Permite mejor capacitación del personal",
+      "E) Acelera los procedimientos investigativos"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Por qué el IITCUP específicamente impulsa programas de 'actualización en técnicas de exposición oral, manejo del contrainterrogatorio y lenguaje no verbal'?",
+    "opciones": [
+      "A) Facilita el desarrollo profesional de los peritos",
+      "B) Fortalece la calidad técnica de la prueba pericial mediante competencias comunicativas especializadas para el juicio oral",
+      "C) Cumple estándares de capacitación institucional",
+      "D) Permite mejor imagen profesional de los expertos",
+      "E) Acelera la aceptación de pericias por tribunales"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "En el marco de tribunales de sentencia del artículo 52 del CPP, ¿por qué están 'integrados por tres jueces técnicos' específicamente?",
+    "opciones": [
+      "A) Facilita la organización administrativa del tribunal",
+      "B) La colegiatura técnica garantiza análisis especializado, deliberación fundamentada y control mutuo en la valoración probatoria",
+      "C) Cumple requisitos constitucionales de composición",
+      "D) Permite mejor distribución de la carga procesal",
+      "E) Acelera la toma de decisiones judiciales"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "¿Cuál es la razón técnica por la que una 'declaración que no guarda correspondencia con informes o pericias previas puede ser desestimada'?",
+    "opciones": [
+      "A) Facilita la valoración probatoria del tribunal",
+      "B) La inconsistencia entre testimonio y documentación previa evidencia falta de veracidad o preparación deficiente del testigo",
+      "C) Cumple principios de coherencia procesal",
+      "D) Permite mejor análisis de credibilidad",
+      "E) Acelera la identificación de testimonios problemáticos"
+    ],
+    "correcta": [1]
+  },
+  {
+    "texto": "En el contexto de 'esperar autorización expresa del juez para abandonar el estrado', ¿por qué esta formalidad es jurídicamente relevante?",
+    "opciones": [
+      "A) Facilita el control del orden en la sala de audiencias",
+      "B) Mantiene la formalidad procesal y permite al tribunal evaluar si requiere aclaraciones adicionales del testimonio",
+      "C) Cumple protocolos de seguridad judicial",
+      "D) Permite mejor documentación de la audiencia",
+      "E) Acelera la organización de la siguiente declaración"
+    ],
+    "correcta": [1]
+  },
+
+
+    ];
+
+    const form = document.getElementById("formQuiz");
+    let preguntasSeleccionadas = [];
+
+    function iniciarCuestionario(){
+      form.innerHTML = "";
+      document.querySelector(".quiz-container").innerHTML = '<form id="formQuiz"></form><button onclick="finalizar()">Finalizar</button>';
+      preguntasSeleccionadas = [...todasPreguntas]
+        .sort(() => 0.5 - Math.random())
+        .slice(0, 50);
+      const formNuevo = document.getElementById("formQuiz");
+      preguntasSeleccionadas.forEach((p, i) => {
+        let div = document.createElement("div");
+        div.className = "pregunta";
+        div.innerHTML = `<strong>${i+1}. ${p.texto}</strong><br>`;
+        p.opciones.forEach((op, j) => {
+          div.innerHTML += `<label><input type="checkbox" name="preg${i}" value="${j}"> ${op}</label><br>`;
+        });
+        formNuevo.appendChild(div);
+      });
+    }
+
+    function finalizar() {
+      let puntaje = 0;
+      let html = "<h3>Resultados:</h3>";
+      preguntasSeleccionadas.forEach((p, i) => {
+        let seleccionadas = [...document.querySelectorAll(`input[name=preg${i}]:checked`)].map(e => parseInt(e.value));
+        let correctas = p.correcta.slice().sort().toString();
+        let usuario = seleccionadas.slice().sort().toString();
+        let esCorrecto = correctas === usuario;
+        if (esCorrecto) puntaje += 5;
+        html += `<p><strong>${i+1}. ${p.texto}</strong><br>
+                 <span class="${esCorrecto?'respuesta-correcta':'respuesta-incorrecta'}">
+                 Tu respuesta: ${formatRespuesta(seleccionadas)} | Correcta: ${formatRespuesta(p.correcta)}</span></p>`;
+      });
+      let nota = puntaje;
+      html += `<h2>Nota final: ${nota}/100</h2>`;
+      html += nota >= 60 ? "<p style='color:green; font-weight:bold;'>¡Aprobado!</p>" : "<p style='color:red; font-weight:bold;'>Reprobado</p>";
+
+      document.querySelector(".quiz-container").innerHTML = html + 
+        `<div class="botones-final">
+            <button onclick="reiniciar()">Intentar otra vez</button>
+            <button onclick="volverInicio()">Volver al inicio</button>
+        </div>`;
+    }
+
+    function formatRespuesta(indices) {
+      if (indices.length === 0) return "(ninguna)";
+      return indices.map(i => String.fromCharCode(65 + i)).join(", ");
+    }
+
+    function reiniciar() {
+      iniciarCuestionario();
+    }
+
+    function volverInicio() {
+      window.location.href = "materias.html"; // 🔹 Cambia esto a tu página de inicio real
+    }
+
+    // 👉 Inicia el cuestionario al cargar la página
+    iniciarCuestionario();
+  </script>
+</body>
+</html>

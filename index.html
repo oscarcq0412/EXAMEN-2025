@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Login - Policía Boliviana</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sky">
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+        <div class="cloud cloud3"></div>
+        <div class="cloud cloud4"></div>
+    </div>
+
+    <div class="login-container">
+        <h2>Ingreso al Sistema</h2>
+        <input type="text" id="usuario" placeholder="Usuario">
+        <input type="password" id="contrasena" placeholder="Contraseña">
+        <button onclick="login()">Ingresar</button>
+        <p id="mensaje"></p>
+    </div>
+
+    <script>
+        function login() {
+            let user = document.getElementById("usuario").value;
+            let pass = document.getElementById("contrasena").value;
+
+            if (user === "fabrica" && pass === "1234") {
+                window.location.href = "materias.html";
+            } else {
+                document.getElementById("mensaje").innerText = "Usuario o contraseña incorrectos";
+            }
+        }
+    </script>
+</body>
+</html>
